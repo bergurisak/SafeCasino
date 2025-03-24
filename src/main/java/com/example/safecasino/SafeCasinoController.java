@@ -3,7 +3,7 @@ package com.example.safecasino;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class SafeCasinoController {
     @FXML
     private Label welcomeText;
 
