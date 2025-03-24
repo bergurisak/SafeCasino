@@ -1,4 +1,4 @@
-package com.example.safecasino;
+package vinnsla;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

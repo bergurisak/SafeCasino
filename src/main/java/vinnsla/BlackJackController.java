@@ -1,4 +1,4 @@
-package com.example.safecasino;
+package vinnsla;
 
 public class BlackJackController {
 }

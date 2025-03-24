@@ -1,4 +1,4 @@
-package com.example.safecasino;
+package vinnsla;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
