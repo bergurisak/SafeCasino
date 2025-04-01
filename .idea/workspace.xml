@@ -4,17 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="Controllers og fxml skrár bættar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mp3/CasinoSoundEffect.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/myndir/red_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Menu.fxml" afterDir="false" />
+    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/10-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/10-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/10-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/10-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/2-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/2-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/2-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/2-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/3-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/3-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/3-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/3-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/4-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/4-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/4-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/4-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/5-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/5-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/5-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/5-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/6-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/6-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/6-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/6-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/7-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/7-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/7-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/7-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/8-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/8-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/8-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/8-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/9-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/9-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/9-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/9-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/A-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/A-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/A-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/A-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/BACK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-B.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-R.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/J-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/K-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/K-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/K-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/K-S.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/Q-C.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/Q-D.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/Q-H.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/myndir/cards/Q-S.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,31 +104,33 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2ulz606yjHL187ih7RqamvxT57z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bergu/Downloads/HBV201G-forrit-main/HBV201G-forrit-main/Vika6/SafeCasino/src/main/resources/mp3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bergu/Downloads/HBV201G-forrit-main/HBV201G-forrit-main/Vika6/SafeCasino/src/main/resources/mp3&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bergu\Downloads\HBV201G-forrit-main\HBV201G-forrit-main\Vika6\SafeCasino\src\main\resources\mp3" />
@@ -188,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742844495527</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="BlackjackController, myndir og mp3">
+      <option name="closed" value="true" />
+      <created>1742854015210</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1742854015210</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +264,7 @@
     <MESSAGE value="Controllers" />
     <MESSAGE value="Controllers og fxml skrár" />
     <MESSAGE value="Controllers og fxml skrár bættar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers og fxml skrár bættar" />
+    <MESSAGE value="BlackjackController, myndir og mp3" />
+    <option name="LAST_COMMIT_MESSAGE" value="BlackjackController, myndir og mp3" />
   </component>
 </project>
