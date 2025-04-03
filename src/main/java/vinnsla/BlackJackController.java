@@ -1,5 +1,6 @@
 package vinnsla;
 
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
@@ -34,6 +36,7 @@ public class BlackJackController implements Initializable {
     private Random random = new Random();
 
     private Card hiddenCard;
+    private ImageView hiddenCardBackImageView;
     private ArrayList<Card> dealerHand = new ArrayList<>();
     private int dealerSum;
     private int dealerAceCount;
@@ -59,12 +62,6 @@ public class BlackJackController implements Initializable {
     }
 
     private void startGame() {
-        if (profile == null) {
-            resultText.setText("Error: Profile not set.");
-            return;
-        }
-
-        // Only clear card images, not UI controls
         gamePane.getChildren().removeIf(node -> node instanceof ImageView);
 
         buildDeck();
@@ -75,7 +72,15 @@ public class BlackJackController implements Initializable {
         dealerSum = playerSum = dealerAceCount = playerAceCount = 0;
         resultText.setText("");
 
-        hiddenCard = drawCard(true, true);
+        hiddenCard = deck.remove(deck.size() - 1);
+        Image backImg = new Image(getClass().getResourceAsStream("/cards/BACK.png"));
+        hiddenCardBackImageView = new ImageView(backImg);
+        hiddenCardBackImageView.setFitWidth(CARD_WIDTH);
+        hiddenCardBackImageView.setFitHeight(CARD_HEIGHT);
+        hiddenCardBackImageView.setLayoutX(20);
+        hiddenCardBackImageView.setLayoutY(50);
+        gamePane.getChildren().add(hiddenCardBackImageView);
+
         dealerSum += hiddenCard.getValue();
         dealerAceCount += hiddenCard.isAce() ? 1 : 0;
 
@@ -118,13 +123,8 @@ public class BlackJackController implements Initializable {
         }
 
         Card card = deck.remove(deck.size() - 1);
-
-        Image image;
-        if (hidden) {
-            image = new Image(getClass().getResourceAsStream("/cards/BACK.png"));
-        } else {
-            image = new Image(getClass().getResourceAsStream(card.getImagePath()));
-        }
+        Image image = hidden ? new Image(getClass().getResourceAsStream("/cards/BACK.png"))
+                : new Image(getClass().getResourceAsStream(card.getImagePath()));
 
         ImageView cardView = new ImageView(image);
         cardView.setFitWidth(CARD_WIDTH);
@@ -166,59 +166,58 @@ public class BlackJackController implements Initializable {
     }
 
     private void revealDealerCards() {
-        if (hiddenCard == null) {
+        if (hiddenCard == null || hiddenCardBackImageView == null) {
             resultText.setText("Error: Game not started. Click Deal.");
             return;
         }
 
-        // First, remove the old card back from the gamePane
-        gamePane.getChildren().removeIf(node -> {
-            if (node instanceof ImageView) {
-                ImageView img = (ImageView) node;
-                return img.getLayoutX() == 20 && img.getLayoutY() == 50;
-            }
-            return false;
+        ScaleTransition flipOut = new ScaleTransition(Duration.millis(150), hiddenCardBackImageView);
+        flipOut.setFromX(1);
+        flipOut.setToX(0);
+
+        flipOut.setOnFinished(e -> {
+            hiddenCardBackImageView.setImage(new Image(getClass().getResourceAsStream(hiddenCard.getImagePath())));
+
+            ScaleTransition flipIn = new ScaleTransition(Duration.millis(150), hiddenCardBackImageView);
+            flipIn.setFromX(0);
+            flipIn.setToX(1);
+            flipIn.play();
+
+            flipIn.setOnFinished(event -> {
+                dealerHand.add(hiddenCard);
+
+                while (dealerSum < 17) {
+                    Card card = drawCard(false, true);
+                    if (card == null) return;
+                    dealerSum += card.getValue();
+                    dealerAceCount += card.isAce() ? 1 : 0;
+                    dealerHand.add(card);
+                }
+
+                dealerSum = reduceDealerAce();
+                playerSum = reducePlayerAce();
+
+                String message;
+                if (playerSum > 21) {
+                    message = "You Lose!";
+                    profile.loseBet();
+                } else if (dealerSum > 21 || playerSum > dealerSum) {
+                    message = "You Win!";
+                    profile.winBet();
+                } else if (playerSum == dealerSum) {
+                    message = "Tie!";
+                    profile.tieBet();
+                } else {
+                    message = "You Lose!";
+                    profile.loseBet();
+                }
+
+                resultText.setText(message);
+                updateBetDisplay();
+            });
         });
 
-// Then, show the revealed card in the same place
-        ImageView revealedImg = new ImageView(new Image(getClass().getResourceAsStream(hiddenCard.getImagePath())));
-        revealedImg.setFitWidth(CARD_WIDTH);
-        revealedImg.setFitHeight(CARD_HEIGHT);
-        revealedImg.setLayoutX(20);
-        revealedImg.setLayoutY(50);
-        gamePane.getChildren().add(revealedImg);
-
-        dealerHand.add(hiddenCard); // Add hidden card to dealer's hand officially
-
-        while (dealerSum < 17) {
-            Card card = drawCard(false, true);  // 👈 Correctly placed on dealer's side
-            if (card == null) return;
-
-            dealerSum += card.getValue();
-            dealerAceCount += card.isAce() ? 1 : 0;
-            dealerHand.add(card);
-        }
-
-        dealerSum = reduceDealerAce();
-        playerSum = reducePlayerAce();
-
-        String message;
-        if (playerSum > 21) {
-            message = "You Lose!";
-            profile.loseBet();
-        } else if (dealerSum > 21 || playerSum > dealerSum) {
-            message = "You Win!";
-            profile.winBet();
-        } else if (playerSum == dealerSum) {
-            message = "Tie!";
-            profile.tieBet();
-        } else {
-            message = "You Lose!";
-            profile.loseBet();
-        }
-
-        resultText.setText(message);
-        updateBetDisplay();
+        flipOut.play();
     }
 
     private int reducePlayerAce() {
