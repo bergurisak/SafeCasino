@@ -1,0 +1,85 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"32360bd1-064c-4c39-8813-f39f8eb9d483\" name=\"Changes\" comment=\"Controllers og fxml skrár\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ChangesViewManager\">\n    <option name=\"groupingKeys\">\n      <option value=\"directory\" />\n      <option value=\"module\" />\n      <option value=\"repository\" />\n    </option>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"FxmlFile\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 8\n}]]></component>\n  <component name=\"ProjectId\" id=\"2ulz606yjHL187ih7RqamvxT57z\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"git-widget-placeholder\": \"master\"\n  },\n  \"keyToStringList\": {\n    \"ChangesTree.GroupingKeys\": [\n      \"directory\",\n      \"module\",\n      \"repository\"\n    ]\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"32360bd1-064c-4c39-8813-f39f8eb9d483\" name=\"Changes\" comment=\"\" />\n      <created>1742837772604</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1742837772604</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742837936670</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742837936670</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"initial commit\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742838150903</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742838150903</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Controllers\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742838372810</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742838372810</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Controllers\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742838529143</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742838529143</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Controllers og fxml skrár\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742839074001</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742839074001</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Controllers og fxml skrár\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742839594880</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742839594880</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Controllers og fxml skrár\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742839908962</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742839908962</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Controllers og fxml skrár\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742839991191</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742839991191</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Controllers og fxml skrár\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1742840657078</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1742840657078</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"10\" />\n    <servers />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"initial commit\" />\n    <MESSAGE value=\"Controllers\" />\n    <MESSAGE value=\"Controllers og fxml skrár\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Controllers og fxml skrár\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 585e930fde1bbd51634e931ed79f85ffd396adf8)
++++ b/.idea/workspace.xml	(date 1743687869484)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="Controllers og fxml skrár" />
++    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="Controllers og fxml skrár">
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -26,23 +29,33 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="ROOT_SYNC" value="DONT_SYNC" />
+   </component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 8
+-}]]></component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 8
++}</component>
+   <component name="ProjectId" id="2ulz606yjHL187ih7RqamvxT57z" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "ASKED_ADD_EXTERNAL_FILES": "true",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "master"
++    "git-widget-placeholder": "master",
++    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+   },
+   "keyToStringList": {
+     "ChangesTree.GroupingKeys": [
+@@ -133,12 +146,22 @@
+       <option name="project" value="LOCAL" />
+       <updated>1742840657078</updated>
+     </task>
+-    <option name="localTasksCounter" value="10" />
++    <task id="LOCAL-00010" summary="Controllers og fxml skrár">
++      <option name="closed" value="true" />
++      <created>1742842116443</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1742842116443</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="initial commit" />
+     <MESSAGE value="Controllers" />
++    <MESSAGE value="ye" />
+     <MESSAGE value="Controllers og fxml skrár" />
+     <option name="LAST_COMMIT_MESSAGE" value="Controllers og fxml skrár" />
+   </component>
