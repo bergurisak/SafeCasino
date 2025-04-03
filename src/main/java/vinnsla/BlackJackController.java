@@ -24,6 +24,7 @@ public class BlackJackController implements Initializable {
     @FXML private AnchorPane gamePane;
     @FXML private Button hitButton;
     @FXML private Button stayButton;
+    @FXML private Button dealButton;
     @FXML private Text resultText;
 
     private final int CARD_WIDTH = 110;
@@ -48,8 +49,24 @@ public class BlackJackController implements Initializable {
         updateBetDisplay();
     }
 
+    @FXML
+    private void deal() {
+        if (profile != null && profile.getCurrentBet() > 0) {
+            startGame();
+        } else {
+            resultText.setText("Place a bet before dealing.");
+        }
+    }
+
     private void startGame() {
-        gamePane.getChildren().clear();
+        if (profile == null) {
+            resultText.setText("Error: Profile not set.");
+            return;
+        }
+
+        // Only clear card images, not UI controls
+        gamePane.getChildren().removeIf(node -> node instanceof ImageView);
+
         buildDeck();
         shuffleDeck();
 
@@ -58,17 +75,17 @@ public class BlackJackController implements Initializable {
         dealerSum = playerSum = dealerAceCount = playerAceCount = 0;
         resultText.setText("");
 
-        hiddenCard = drawCard(true);
+        hiddenCard = drawCard(true, true);
         dealerSum += hiddenCard.getValue();
         dealerAceCount += hiddenCard.isAce() ? 1 : 0;
 
-        Card visibleDealerCard = drawCard(false);
+        Card visibleDealerCard = drawCard(false, true);
         dealerSum += visibleDealerCard.getValue();
         dealerAceCount += visibleDealerCard.isAce() ? 1 : 0;
         dealerHand.add(visibleDealerCard);
 
         for (int i = 0; i < 2; i++) {
-            Card card = drawCard(false);
+            Card card = drawCard(false, false);
             playerSum += card.getValue();
             playerAceCount += card.isAce() ? 1 : 0;
             playerHand.add(card);
@@ -94,7 +111,12 @@ public class BlackJackController implements Initializable {
         Collections.shuffle(deck, random);
     }
 
-    private Card drawCard(boolean hidden) {
+    private Card drawCard(boolean hidden, boolean isDealer) {
+        if (deck.isEmpty()) {
+            resultText.setText("Error: Deck is empty.");
+            return null;
+        }
+
         Card card = deck.remove(deck.size() - 1);
 
         Image image;
@@ -108,8 +130,8 @@ public class BlackJackController implements Initializable {
         cardView.setFitWidth(CARD_WIDTH);
         cardView.setFitHeight(CARD_HEIGHT);
 
-        int y = (hiddenCard == null) ? 50 : 300;
-        int x = (hiddenCard == null)
+        int y = isDealer ? 50 : 300;
+        int x = isDealer
                 ? 20 + dealerHand.size() * (CARD_WIDTH + 5)
                 : 20 + playerHand.size() * (CARD_WIDTH + 5);
 
@@ -122,7 +144,9 @@ public class BlackJackController implements Initializable {
 
     @FXML
     private void onHit() {
-        Card card = drawCard(false);
+        Card card = drawCard(false, false);
+        if (card == null) return;
+
         playerSum += card.getValue();
         playerAceCount += card.isAce() ? 1 : 0;
         playerHand.add(card);
@@ -147,16 +171,29 @@ public class BlackJackController implements Initializable {
             return;
         }
 
-        // Replace hidden card with the actual one
-        ImageView hiddenImg = new ImageView(new Image(getClass().getResourceAsStream(hiddenCard.getImagePath())));
-        hiddenImg.setFitWidth(CARD_WIDTH);
-        hiddenImg.setFitHeight(CARD_HEIGHT);
-        hiddenImg.setLayoutX(20);
-        hiddenImg.setLayoutY(50);
-        gamePane.getChildren().add(hiddenImg);
+        // First, remove the old card back from the gamePane
+        gamePane.getChildren().removeIf(node -> {
+            if (node instanceof ImageView) {
+                ImageView img = (ImageView) node;
+                return img.getLayoutX() == 20 && img.getLayoutY() == 50;
+            }
+            return false;
+        });
+
+// Then, show the revealed card in the same place
+        ImageView revealedImg = new ImageView(new Image(getClass().getResourceAsStream(hiddenCard.getImagePath())));
+        revealedImg.setFitWidth(CARD_WIDTH);
+        revealedImg.setFitHeight(CARD_HEIGHT);
+        revealedImg.setLayoutX(20);
+        revealedImg.setLayoutY(50);
+        gamePane.getChildren().add(revealedImg);
+
+        dealerHand.add(hiddenCard); // Add hidden card to dealer's hand officially
 
         while (dealerSum < 17) {
-            Card card = drawCard(false);
+            Card card = drawCard(false, true);  // 👈 Correctly placed on dealer's side
+            if (card == null) return;
+
             dealerSum += card.getValue();
             dealerAceCount += card.isAce() ? 1 : 0;
             dealerHand.add(card);
@@ -209,22 +246,17 @@ public class BlackJackController implements Initializable {
 
     @FXML
     private void increaseBet() {
-        profile.increaseBet(10);
-        updateBetDisplay();
+        if (profile != null) {
+            profile.increaseBet(10);
+            updateBetDisplay();
+        }
     }
 
     @FXML
     private void decreaseBet() {
-        profile.decreaseBet(10);
-        updateBetDisplay();
-    }
-
-    @FXML
-    private void deal() {
-        if (profile.getCurrentBet() > 0) {
-            startGame();
-        } else {
-            resultText.setText("Place a bet first!");
+        if (profile != null) {
+            profile.decreaseBet(10);
+            updateBetDisplay();
         }
     }
 }

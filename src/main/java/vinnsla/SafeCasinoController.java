@@ -16,7 +16,7 @@ public class SafeCasinoController {
     @FXML
     private void startBlackjack(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/BlackJack.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/BlackJack.fxml"));
             Parent root = loader.load();
 
             BlackJackController controller = loader.getController();

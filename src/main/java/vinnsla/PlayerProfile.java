@@ -4,8 +4,8 @@ public class PlayerProfile {
     private int balance;
     private int currentBet;
 
-    public PlayerProfile(int startingBalance) {
-        this.balance = startingBalance;
+    public PlayerProfile(int initialBalance) {
+        this.balance = initialBalance;
         this.currentBet = 0;
     }
 
@@ -18,34 +18,30 @@ public class PlayerProfile {
     }
 
     public void increaseBet(int amount) {
-        if (balance >= amount) {
+        if (amount <= balance) {
             currentBet += amount;
             balance -= amount;
         }
     }
 
     public void decreaseBet(int amount) {
-        if (currentBet >= amount) {
+        if (amount <= currentBet) {
             currentBet -= amount;
             balance += amount;
         }
     }
 
-    public void resetBet() {
+    public void winBet() {
+        balance += currentBet * 2;
         currentBet = 0;
     }
 
-    public void winBet() {
-        balance += currentBet * 2;
-        resetBet();
+    public void loseBet() {
+        currentBet = 0;
     }
 
     public void tieBet() {
         balance += currentBet;
-        resetBet();
-    }
-
-    public void loseBet() {
-        resetBet();
+        currentBet = 0;
     }
 }

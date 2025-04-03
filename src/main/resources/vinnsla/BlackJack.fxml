@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="gamePane" prefHeight="617.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.BlackJackController">
-    <children>
-      <Button fx:id="hitButton" layoutX="212.0" layoutY="577.0" mnemonicParsing="false" onAction="#onHit" prefHeight="25.0" prefWidth="75.0" text="Hit!" />
-      <Button fx:id="stayButton" layoutX="335.0" layoutY="577.0" mnemonicParsing="false" onAction="#onStay" prefHeight="25.0" prefWidth="75.0" text="Stay" />
-      <Text fx:id="resultText" layoutX="250.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.33673095703125" />
-      <Text fx:id="balanceText" layoutX="451.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.33673095703125" />
-      <Text fx:id="betText" layoutX="451.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.33673095703125" />
-      <ButtonBar layoutX="165.0" layoutY="537.0" prefHeight="40.0" prefWidth="237.0">
-        <buttons>
-          <Button mnemonicParsing="false" onAction="#increaseBet" text="+" />
-            <Button mnemonicParsing="false" onAction="#decreaseBet" text="-" />
-            <Button mnemonicParsing="false" onAction="#deal" text="Deal" />
-        </buttons>
-      </ButtonBar>
-    </children>
+  <children>
+    <Button fx:id="hitButton" layoutX="212.0" layoutY="577.0" mnemonicParsing="false" onAction="#onHit" prefHeight="25.0" prefWidth="75.0" text="Hit!" />
+    <Button fx:id="stayButton" layoutX="335.0" layoutY="577.0" mnemonicParsing="false" onAction="#onStay" prefHeight="25.0" prefWidth="75.0" text="Stay" />
+
+    <Text fx:id="resultText" layoutX="250.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.3" />
+    <Text fx:id="balanceText" layoutX="451.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.3" />
+    <Text fx:id="betText" layoutX="451.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.3" />
+
+    <!-- Replaced ButtonBar with individual buttons -->
+    <Button fx:id="increaseButton" layoutX="165.0" layoutY="537.0" mnemonicParsing="false" onAction="#increaseBet" prefHeight="25.0" prefWidth="50.0" text="+" />
+    <Button fx:id="decreaseButton" layoutX="225.0" layoutY="537.0" mnemonicParsing="false" onAction="#decreaseBet" prefHeight="25.0" prefWidth="50.0" text="-" />
+    <Button fx:id="dealButton" layoutX="285.0" layoutY="537.0" mnemonicParsing="false" onAction="#deal" prefHeight="25.0" prefWidth="75.0" text="Deal" />
+  </children>
 </AnchorPane>
