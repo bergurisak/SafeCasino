@@ -3,9 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.SafeCasinoController">
+<AnchorPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.SafeCasinoController">
    <children>
-      <Button fx:id="blackjackButton" layoutX="248.0" layoutY="288.0" mnemonicParsing="false" onAction="#startBlackjack" text="Blackjack" />
+      <Button layoutX="248.0" layoutY="288.0" mnemonicParsing="false" onAction="#startBlackjack" text="Blackjack" />
+      <Button layoutX="361.0" layoutY="288.0" mnemonicParsing="false" onAction="#startRoulette" text="Roullete" />
    </children>
 </AnchorPane>

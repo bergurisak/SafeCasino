@@ -16,7 +16,9 @@ public class BlackJackController implements Initializable {
 
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
+        System.out.println("Profile set: $" + profile.getBalance());
         updateBetDisplay();
+
     }
 
     @FXML private Text balanceText;
