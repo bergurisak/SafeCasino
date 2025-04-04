@@ -1,13 +1,17 @@
 package vinnsla;
 
-import javafx.animation.ScaleTransition;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -15,6 +19,7 @@ import java.util.*;
 
 public class BlackJackController implements Initializable {
     private PlayerProfile profile;
+    private boolean gameInProgress = false;
 
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
@@ -42,6 +47,7 @@ public class BlackJackController implements Initializable {
     private int dealerAceCount;
 
     private ArrayList<Card> playerHand = new ArrayList<>();
+    private ArrayList<ImageView> playerCardViews = new ArrayList<>();
     private int playerSum;
     private int playerAceCount;
 
@@ -54,6 +60,10 @@ public class BlackJackController implements Initializable {
 
     @FXML
     private void deal() {
+        if (gameInProgress) {
+            showBigMessage("Play the game lil bro");
+            return;
+        }
         if (profile != null && profile.getCurrentBet() > 0) {
             startGame();
         } else {
@@ -61,14 +71,40 @@ public class BlackJackController implements Initializable {
         }
     }
 
+    private void showBigMessage(String msg) {
+        Text popup = new Text(msg);
+        popup.setFont(Font.font("Arial", 40));
+        popup.setFill(Color.RED);
+        popup.setOpacity(0);
+        popup.setLayoutX(300);
+        popup.setLayoutY(250);
+
+        gamePane.getChildren().add(popup);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), popup);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), popup);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setDelay(Duration.seconds(2));
+
+        fadeOut.setOnFinished(e -> gamePane.getChildren().remove(popup));
+
+        new SequentialTransition(fadeIn, fadeOut).play();
+    }
+
     private void startGame() {
-        gamePane.getChildren().removeIf(node -> node instanceof ImageView);
+        gameInProgress = true;
+        gamePane.getChildren().removeIf(node -> node instanceof ImageView || node instanceof Circle);
 
         buildDeck();
         shuffleDeck();
 
         dealerHand.clear();
         playerHand.clear();
+        playerCardViews.clear();
         dealerSum = playerSum = dealerAceCount = playerAceCount = 0;
         resultText.setText("");
 
@@ -130,14 +166,15 @@ public class BlackJackController implements Initializable {
         cardView.setFitWidth(CARD_WIDTH);
         cardView.setFitHeight(CARD_HEIGHT);
 
-        int y = isDealer ? 50 : 300;
-        int x = isDealer
-                ? 20 + dealerHand.size() * (CARD_WIDTH + 5)
-                : 20 + playerHand.size() * (CARD_WIDTH + 5);
+        int y = isDealer ? 50 : 350;
+        int offset = isDealer ? dealerHand.size() + 1 : playerHand.size();
+        int x = 20 + offset * (CARD_WIDTH + 5);
 
         cardView.setLayoutX(x);
         cardView.setLayoutY(y);
         gamePane.getChildren().add(cardView);
+
+        if (!isDealer) playerCardViews.add(cardView);
 
         return card;
     }
@@ -152,6 +189,7 @@ public class BlackJackController implements Initializable {
         playerHand.add(card);
 
         if (reducePlayerAce() > 21) {
+            highlightBustedHand();
             hitButton.setDisable(true);
             stayButton.setDisable(true);
             revealDealerCards();
@@ -191,6 +229,7 @@ public class BlackJackController implements Initializable {
                     if (card == null) return;
                     dealerSum += card.getValue();
                     dealerAceCount += card.isAce() ? 1 : 0;
+                    dealerSum = reduceDealerAce();
                     dealerHand.add(card);
                 }
 
@@ -200,24 +239,101 @@ public class BlackJackController implements Initializable {
                 String message;
                 if (playerSum > 21) {
                     message = "You Lose!";
+                    playSound("bust.mp3");
+                    highlightBustedHand();
                     profile.loseBet();
                 } else if (dealerSum > 21 || playerSum > dealerSum) {
                     message = "You Win!";
+                    playSound("win.mp3");
                     profile.winBet();
+                    launchConfetti();
                 } else if (playerSum == dealerSum) {
                     message = "Tie!";
+                    playSound("tie.mp3");
                     profile.tieBet();
                 } else {
                     message = "You Lose!";
+                    playSound("lose.mp3");
                     profile.loseBet();
                 }
 
                 resultText.setText(message);
+                animateResult();
                 updateBetDisplay();
+                gameInProgress = false;
+
+                if (profile.getBalance() > 1000) showCashIsKing();
             });
         });
 
         flipOut.play();
+    }
+
+    private void showCashIsKing() {
+        Image image = new Image(getClass().getResourceAsStream("/images/cashisking.jpg"));
+        ImageView view = new ImageView(image);
+        view.setFitWidth(400);
+        view.setPreserveRatio(true);
+        view.setOpacity(0);
+        view.setLayoutX(300);
+        view.setLayoutY(200);
+        gamePane.getChildren().add(view);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), view);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setDelay(Duration.seconds(2));
+        fadeOut.setOnFinished(e -> gamePane.getChildren().remove(view));
+
+        new SequentialTransition(fadeIn, fadeOut).play();
+    }
+
+    private void launchConfetti() {
+        for (int i = 0; i < 30; i++) {
+            Circle circle = new Circle(5, Color.hsb(Math.random() * 360, 1, 1));
+            circle.setLayoutX(500);
+            circle.setLayoutY(100);
+            gamePane.getChildren().add(circle);
+
+            double dx = Math.random() * 400 - 200;
+            double dy = 300 + Math.random() * 100;
+
+            Timeline drop = new Timeline(
+                    new KeyFrame(Duration.ZERO, evt -> {
+                        circle.setTranslateX(0);
+                        circle.setTranslateY(0);
+                    }),
+                    new KeyFrame(Duration.seconds(1.5), evt -> {
+                        gamePane.getChildren().remove(circle);
+                    }, new KeyValue(circle.translateXProperty(), dx),
+                            new KeyValue(circle.translateYProperty(), dy))
+            );
+            drop.play();
+        }
+    }
+
+    private void highlightBustedHand() {
+        for (ImageView img : playerCardViews) {
+            img.setStyle("-fx-effect: dropshadow(gaussian, red, 15, 0, 0, 0);");
+        }
+    }
+
+    private void animateResult() {
+        ScaleTransition bounce = new ScaleTransition(Duration.millis(300), resultText);
+        bounce.setFromX(1);
+        bounce.setToX(1.3);
+        bounce.setCycleCount(2);
+        bounce.setAutoReverse(true);
+        bounce.play();
+    }
+
+    private void playSound(String fileName) {
+        AudioClip sound = new AudioClip(getClass().getResource("/mp3/" + fileName).toExternalForm());
+        sound.play();
     }
 
     private int reducePlayerAce() {
@@ -238,6 +354,8 @@ public class BlackJackController implements Initializable {
 
     private void updateBetDisplay() {
         if (profile != null) {
+            balanceText.setLayoutX(700);
+            betText.setLayoutX(700);
             balanceText.setText("Balance: $" + profile.getBalance());
             betText.setText("Bet: $" + profile.getCurrentBet());
         }
