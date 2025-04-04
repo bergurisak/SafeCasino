@@ -9,11 +9,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
 
@@ -38,16 +39,16 @@ public class BlackJackController implements Initializable {
     private final int CARD_HEIGHT = 154;
 
     private ArrayList<Card> deck;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     private Card hiddenCard;
     private ImageView hiddenCardBackImageView;
-    private ArrayList<Card> dealerHand = new ArrayList<>();
+    private final ArrayList<Card> dealerHand = new ArrayList<>();
     private int dealerSum;
     private int dealerAceCount;
 
-    private ArrayList<Card> playerHand = new ArrayList<>();
-    private ArrayList<ImageView> playerCardViews = new ArrayList<>();
+    private final ArrayList<Card> playerHand = new ArrayList<>();
+    private final ArrayList<ImageView> playerCardViews = new ArrayList<>();
     private int playerSum;
     private int playerAceCount;
 
@@ -109,7 +110,9 @@ public class BlackJackController implements Initializable {
         resultText.setText("");
 
         hiddenCard = deck.remove(deck.size() - 1);
-        Image backImg = new Image(getClass().getResourceAsStream("/cards/BACK.png"));
+        InputStream backStream = getClass().getResourceAsStream("/cards/BACK.png");
+        if (backStream == null) return;
+        Image backImg = new Image(backStream);
         hiddenCardBackImageView = new ImageView(backImg);
         hiddenCardBackImageView.setFitWidth(CARD_WIDTH);
         hiddenCardBackImageView.setFitHeight(CARD_HEIGHT);
@@ -159,10 +162,10 @@ public class BlackJackController implements Initializable {
         }
 
         Card card = deck.remove(deck.size() - 1);
-        Image image = hidden ? new Image(getClass().getResourceAsStream("/cards/BACK.png"))
-                : new Image(getClass().getResourceAsStream(card.getImagePath()));
+        InputStream stream = getClass().getResourceAsStream(hidden ? "/cards/BACK.png" : card.getImagePath());
+        if (stream == null) return null;
 
-        ImageView cardView = new ImageView(image);
+        ImageView cardView = new ImageView(new Image(stream));
         cardView.setFitWidth(CARD_WIDTH);
         cardView.setFitHeight(CARD_HEIGHT);
 
@@ -214,7 +217,9 @@ public class BlackJackController implements Initializable {
         flipOut.setToX(0);
 
         flipOut.setOnFinished(e -> {
-            hiddenCardBackImageView.setImage(new Image(getClass().getResourceAsStream(hiddenCard.getImagePath())));
+            InputStream stream = getClass().getResourceAsStream(hiddenCard.getImagePath());
+            if (stream == null) return;
+            hiddenCardBackImageView.setImage(new Image(stream));
 
             ScaleTransition flipIn = new ScaleTransition(Duration.millis(150), hiddenCardBackImageView);
             flipIn.setFromX(0);
@@ -270,8 +275,9 @@ public class BlackJackController implements Initializable {
     }
 
     private void showCashIsKing() {
-        Image image = new Image(getClass().getResourceAsStream("/images/cashisking.jpg"));
-        ImageView view = new ImageView(image);
+        InputStream stream = getClass().getResourceAsStream("/images/cashisking.jpg");
+        if (stream == null) return;
+        ImageView view = new ImageView(new Image(stream));
         view.setFitWidth(400);
         view.setPreserveRatio(true);
         view.setOpacity(0);
@@ -303,15 +309,11 @@ public class BlackJackController implements Initializable {
             double dy = 300 + Math.random() * 100;
 
             Timeline drop = new Timeline(
-                    new KeyFrame(Duration.ZERO, evt -> {
-                        circle.setTranslateX(0);
-                        circle.setTranslateY(0);
-                    }),
-                    new KeyFrame(Duration.seconds(1.5), evt -> {
-                        gamePane.getChildren().remove(circle);
-                    }, new KeyValue(circle.translateXProperty(), dx),
+                    new KeyFrame(Duration.ZERO),
+                    new KeyFrame(Duration.seconds(1.5), new KeyValue(circle.translateXProperty(), dx),
                             new KeyValue(circle.translateYProperty(), dy))
             );
+            drop.setOnFinished(evt -> gamePane.getChildren().remove(circle));
             drop.play();
         }
     }
@@ -332,7 +334,12 @@ public class BlackJackController implements Initializable {
     }
 
     private void playSound(String fileName) {
-        AudioClip sound = new AudioClip(getClass().getResource("/mp3/" + fileName).toExternalForm());
+        URL soundUrl = getClass().getResource("/mp3/" + fileName);
+        if (soundUrl == null) {
+            System.out.println("Sound file not found: " + fileName);
+            return;
+        }
+        AudioClip sound = new AudioClip(soundUrl.toExternalForm());
         sound.play();
     }
 
