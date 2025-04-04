@@ -1,0 +1,31 @@
+.root {
+-fx-background-color: #228B22 ;
+}
+
+.title-bar {
+    -fx-background-color: #006400 ;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+}
+
+.text {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.Text {
+     -fx-font-size: 18;
+     -fx-font-family:"Impact";
+     -fx-text-fill: #546A50;
+}
+
+.button {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #4E6A54;
+    -fx-font-size: 12;
+    -fx-font-family:"Impact";
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+ }

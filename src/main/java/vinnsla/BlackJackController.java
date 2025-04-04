@@ -32,6 +32,7 @@ public class BlackJackController implements Initializable {
     @FXML private Text balanceText;
     @FXML private Text betText;
     @FXML private AnchorPane gamePane;
+    @FXML private AnchorPane cardPane;
     @FXML private Button hitButton;
     @FXML private Button stayButton;
     @FXML private Button dealButton;
@@ -76,13 +77,13 @@ public class BlackJackController implements Initializable {
 
     private void showBigMessage(String msg) {
         Text popup = new Text(msg);
-        popup.setFont(Font.font("Arial", 40));
-        popup.setFill(Color.RED);
+        popup.setFont(Font.font("Trajan Pro", 40));
+        popup.setFill(Color.DARKGREEN);
         popup.setOpacity(0);
         popup.setLayoutX(300);
         popup.setLayoutY(250);
 
-        gamePane.getChildren().add(popup);
+        cardPane.getChildren().add(popup);
 
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), popup);
         fadeIn.setFromValue(0);
@@ -100,7 +101,7 @@ public class BlackJackController implements Initializable {
 
     private void startGame() {
         gameInProgress = true;
-        gamePane.getChildren().removeIf(node -> node instanceof ImageView || node instanceof Circle);
+        cardPane.getChildren().removeIf(node -> node instanceof ImageView || node instanceof Circle);
 
         buildDeck();
         shuffleDeck();
@@ -120,7 +121,7 @@ public class BlackJackController implements Initializable {
         hiddenCardBackImageView.setFitHeight(CARD_HEIGHT);
         hiddenCardBackImageView.setLayoutX(20);
         hiddenCardBackImageView.setLayoutY(50);
-        gamePane.getChildren().add(hiddenCardBackImageView);
+        cardPane.getChildren().add(hiddenCardBackImageView);
 
         dealerSum += hiddenCard.getValue();
         dealerAceCount += hiddenCard.isAce() ? 1 : 0;
@@ -177,7 +178,7 @@ public class BlackJackController implements Initializable {
 
         cardView.setLayoutX(x);
         cardView.setLayoutY(y);
-        gamePane.getChildren().add(cardView);
+        cardPane.getChildren().add(cardView);
 
         if (!isDealer) playerCardViews.add(cardView);
 
@@ -253,6 +254,7 @@ public class BlackJackController implements Initializable {
                     message = "You Win!";
                     playSound("win.mp3");
                     profile.winBet();
+                    showCashIsKing();
                     launchConfetti();
                 } else if (playerSum == dealerSum) {
                     message = "Tie!";
@@ -277,15 +279,20 @@ public class BlackJackController implements Initializable {
     }
 
     private void showCashIsKing() {
-        InputStream stream = getClass().getResourceAsStream("/images/cashisking.jpg");
-        if (stream == null) return;
-        ImageView view = new ImageView(new Image(stream));
+        URL gifUrl = getClass().getResource("/images/smellingMoney.gif");
+        if (gifUrl == null) {
+            System.out.println("Could not find the GIF!");
+            return;
+        }
+
+        Image gifImage = new Image(gifUrl.toExternalForm());
+        ImageView view = new ImageView(gifImage);
         view.setFitWidth(400);
         view.setPreserveRatio(true);
-        view.setOpacity(0);
         view.setLayoutX(300);
         view.setLayoutY(200);
-        gamePane.getChildren().add(view);
+
+        gamePane.getChildren().add(view); // Add first to ensure animation plays
 
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
         fadeIn.setFromValue(0);
@@ -299,6 +306,8 @@ public class BlackJackController implements Initializable {
 
         new SequentialTransition(fadeIn, fadeOut).play();
     }
+
+
 
     private void launchConfetti() {
         for (int i = 0; i < 30; i++) {
