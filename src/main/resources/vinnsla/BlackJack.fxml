@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="gamePane" prefHeight="617.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.BlackJackController">
+<AnchorPane fx:id="gamePane" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.BlackJackController">
   <children>
     <Button fx:id="hitButton" layoutX="212.0" layoutY="577.0" mnemonicParsing="false" onAction="#onHit" prefHeight="25.0" prefWidth="75.0" text="Hit!" />
     <Button fx:id="stayButton" layoutX="335.0" layoutY="577.0" mnemonicParsing="false" onAction="#onStay" prefHeight="25.0" prefWidth="75.0" text="Stay" />
