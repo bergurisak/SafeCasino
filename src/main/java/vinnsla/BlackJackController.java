@@ -1,8 +1,12 @@
 package vinnsla;
 
 import javafx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.InputStream;
@@ -36,6 +41,7 @@ public class BlackJackController implements Initializable {
     @FXML private Button hitButton;
     @FXML private Button stayButton;
     @FXML private Button dealButton;
+    @FXML private Button backButton;
     @FXML private Text resultText;
 
     private final int CARD_WIDTH = 110;
@@ -54,6 +60,24 @@ public class BlackJackController implements Initializable {
     private final ArrayList<ImageView> playerCardViews = new ArrayList<>();
     private int playerSum;
     private int playerAceCount;
+
+    @FXML
+    private void BackToMenu(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/SafeCasino.fxml"));
+            Parent root = loader.load();
+
+            SafeCasinoController controller = loader.getController();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("SafeCasino");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -331,7 +355,7 @@ public class BlackJackController implements Initializable {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), view);
         fadeOut.setFromValue(1);
         fadeOut.setToValue(0);
-        fadeOut.setDelay(Duration.seconds(2));
+        fadeOut.setDelay(Duration.seconds(3));
         fadeOut.setOnFinished(e -> gamePane.getChildren().remove(view));
 
         new SequentialTransition(fadeIn, fadeOut).play();

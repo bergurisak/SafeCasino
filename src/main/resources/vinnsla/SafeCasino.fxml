@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.SafeCasinoController">
+<AnchorPane fx:id="mainMenu" prefHeight="800.0" prefWidth="1000.0" stylesheets="@../css/SafeCasino.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.SafeCasinoController">
    <children>
-      <Button layoutX="248.0" layoutY="288.0" mnemonicParsing="false" onAction="#startBlackjack" text="Blackjack" />
-      <Button layoutX="361.0" layoutY="288.0" mnemonicParsing="false" onAction="#startRoulette" text="Roullete" />
+      <ImageView fitHeight="531.0" fitWidth="509.0" layoutX="246.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/SClogo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="329.0" layoutY="628.0" mnemonicParsing="false" onAction="#startBlackjack" text="Blackjack" />
+      <Button layoutX="569.0" layoutY="628.0" mnemonicParsing="false" onAction="#startRoulette" text="Roullete" />
    </children>
 </AnchorPane>

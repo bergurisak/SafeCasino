@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/BlackjackGoldText.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/long-tears.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/scLogoClear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RouletteComingSoon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RouletteSpinner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/BJTable v2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/blackjackBackground.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -162,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743778073213</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="útlits lagfæringar og bætt við gif">
+      <option name="closed" value="true" />
+      <created>1743789420834</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743789420834</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,6 +182,7 @@
     <MESSAGE value="Controllers" />
     <MESSAGE value="Controllers og fxml skrár" />
     <MESSAGE value="útlits lagfæringar og gif" />
-    <option name="LAST_COMMIT_MESSAGE" value="útlits lagfæringar og gif" />
+    <MESSAGE value="útlits lagfæringar og bætt við gif" />
+    <option name="LAST_COMMIT_MESSAGE" value="útlits lagfæringar og bætt við gif" />
   </component>
 </project>
