@@ -1,5 +1,6 @@
 .root {
--fx-background-color: #228B22 ;
+-fx-background-image: url('../images/background.png');
+-fx-background-size: cover;
 }
 
 .title-bar {
