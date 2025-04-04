@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="Controllers og fxml skrár">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/BJTable v2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/blackjackBackground.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/playTheGameLilBro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/smellingMoney.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/tableOutlines.png" afterDir="false" />
+    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/BlackjackGoldText.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/long-tears.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/scLogoClear.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/BJTable v2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/blackjackBackground.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,13 +154,22 @@
       <option name="project" value="LOCAL" />
       <updated>1742840657078</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="útlits lagfæringar og gif">
+      <option name="closed" value="true" />
+      <created>1743778073213</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743778073213</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <MESSAGE value="Controllers" />
     <MESSAGE value="Controllers og fxml skrár" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers og fxml skrár" />
+    <MESSAGE value="útlits lagfæringar og gif" />
+    <option name="LAST_COMMIT_MESSAGE" value="útlits lagfæringar og gif" />
   </component>
 </project>

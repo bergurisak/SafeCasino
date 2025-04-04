@@ -10,22 +10,33 @@
 }
 
 .text {
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
+     -fx-font-size: 18;
+     -fx-font-family: 'Times New Roman', Times, serif;
+     -fx-font-weight: bold;
+     -fx-background: radial-gradient(circle, gold, goldenrod);
+     -fx-webkit-background-clip: text;
+     -fx-webkit-text-fill-color: transparent;
+     -fx-background-clip: text;
+     -fx-color: transparent;
 }
 
 .Text {
      -fx-font-size: 18;
-     -fx-font-family:"Impact";
-     -fx-text-fill: #546A50;
+     -fx-font-family: 'Times New Roman', Times, serif;
+     -fx-font-weight: bold;
+     -fx-background: radial-gradient(circle, gold, goldenrod);
+     -fx-webkit-background-clip: text;
+     -fx-webkit-text-fill-color: transparent;
+     -fx-background-clip: text;
+     -fx-color: GOLD;
 }
 
 .button {
-    -fx-background-color: #FFD700;
+    -fx-background-color: #FFED8A;
     -fx-text-fill: #4E6A54;
     -fx-font-size: 12;
-    -fx-font-family:"Impact";
+    -fx-font-family:"Times New Roman";
+    -fx-font-weight: bold;
     -fx-padding: 10px 20px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;

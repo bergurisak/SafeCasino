@@ -1,39 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="gamePane" prefHeight="800.0" prefWidth="1000.0" stylesheets="@../css/SafeCasino.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.BlackJackController">
   <children>
-      <ImageView fitHeight="258.0" fitWidth="235.0" layoutX="761.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="250.0" fitWidth="241.0" layoutX="755.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/SClogo.png" />
+            <Image url="@../images/scLogoClear.png" />
          </image>
       </ImageView>
+    <Text fx:id="balanceText" layoutX="570.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="202.0" AnchorPane.leftAnchor="570.0" />
+    <Text fx:id="betText" layoutX="570.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" textAlignment="CENTER" wrappingWidth="202.0" AnchorPane.leftAnchor="570.0" />
 
-          <Text fx:id="resultText" layoutX="450.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.3" />
-    <Text fx:id="balanceText" layoutX="643.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="99.3" />
-    <Text fx:id="betText" layoutX="643.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="163.3" />
-      <AnchorPane fx:id="cardPane" layoutX="5.0" prefHeight="743.0" prefWidth="989.0">
+                                                    <Text fx:id="resultText" layoutX="450.0" layoutY="630.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" textAlignment="CENTER" wrappingWidth="99.3" />
+      <AnchorPane fx:id="cardPane" prefHeight="797.0" prefWidth="1000.0">
          <children>
-            <ImageView fitHeight="837.0" fitWidth="874.0" layoutX="107.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="45.0">
+            <ImageView fitHeight="834.0" fitWidth="837.0" layoutX="78.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="77.0">
                <image>
-                  <Image url="@../images/BJTable%20v2.png" />
+                  <Image url="@../images/BlackjackGoldText.png" />
                </image>
             </ImageView>
-            <Label layoutX="34.0" layoutY="28.0" text="Dealer" />
-            <Label layoutX="45.0" layoutY="323.0" text="Player" />
-          <Button fx:id="dealButton" layoutX="907.0" layoutY="604.0" mnemonicParsing="false" onAction="#deal" prefHeight="25.0" prefWidth="75.0" text="Deal" />
-          <Button fx:id="decreaseButton" layoutX="846.0" layoutY="604.0" mnemonicParsing="false" onAction="#decreaseBet" prefHeight="25.0" prefWidth="50.0" text="-" />
+            <Label layoutX="21.0" layoutY="14.0" text="Dealer ♦">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.979629635810852" blue="0.6944444179534912" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6710526347160339" green="0.5467836260795593" blue="0.1739766150712967" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="22.0" layoutY="319.0" text="Player ♠">
+               <font>
+                  <Font name="Times New Roman Bold" size="14.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" cycleMethod="REFLECT" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="0.9820987582206726" blue="0.7314814925193787" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6499999761581421" green="0.5421618819236755" blue="0.21449999511241913" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+          <Button fx:id="dealButton" layoutX="706.0" layoutY="695.0" mnemonicParsing="false" onAction="#deal" prefHeight="25.0" prefWidth="75.0" text="Deal">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+          <Button fx:id="decreaseButton" layoutX="632.0" layoutY="695.0" mnemonicParsing="false" onAction="#decreaseBet" prefHeight="25.0" prefWidth="50.0" text="-">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
       
           <!-- Replaced ButtonBar with individual buttons -->
-          <Button fx:id="increaseButton" layoutX="786.0" layoutY="604.0" mnemonicParsing="false" onAction="#increaseBet" prefHeight="25.0" prefWidth="50.0" text="+" />
-          <Button fx:id="stayButton" layoutX="549.0" layoutY="604.0" mnemonicParsing="false" onAction="#onStay" prefHeight="25.0" prefWidth="75.0" text="Stay" />
-          <Button fx:id="hitButton" layoutX="425.0" layoutY="604.0" mnemonicParsing="false" onAction="#onHit" prefHeight="25.0" prefWidth="75.0" text="Hit!" />
+          <Button fx:id="increaseButton" layoutX="562.0" layoutY="695.0" mnemonicParsing="false" onAction="#increaseBet" prefHeight="25.0" prefWidth="50.0" text="+">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
+          <Button fx:id="stayButton" layoutX="351.0" layoutY="695.0" mnemonicParsing="false" onAction="#onStay" prefHeight="25.0" prefWidth="75.0" text="Stay">
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+            </Button>
+          <Button fx:id="hitButton" layoutX="253.0" layoutY="695.0" mnemonicParsing="false" onAction="#onHit" prefHeight="25.0" prefWidth="75.0" text="Hit!">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </Button>
          </children>
       </AnchorPane>
   </children>

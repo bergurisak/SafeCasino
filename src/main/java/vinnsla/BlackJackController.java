@@ -65,7 +65,7 @@ public class BlackJackController implements Initializable {
     @FXML
     private void deal() {
         if (gameInProgress) {
-            showBigMessage("Play the game lil bro");
+            showBigMessage("Play The Game Lil Bro (╬≖_≖)");
             return;
         }
         if (profile != null && profile.getCurrentBet() > 0) {
@@ -77,8 +77,8 @@ public class BlackJackController implements Initializable {
 
     private void showBigMessage(String msg) {
         Text popup = new Text(msg);
-        popup.setFont(Font.font("Trajan Pro", 40));
-        popup.setFill(Color.DARKGREEN);
+        popup.setFont(Font.font("Times New Roman", 40));
+        popup.setFill(Color.GOLD);
         popup.setOpacity(0);
         popup.setLayoutX(300);
         popup.setLayoutY(250);
@@ -250,11 +250,12 @@ public class BlackJackController implements Initializable {
                     playSound("bust.mp3");
                     highlightBustedHand();
                     profile.loseBet();
+                    showTears();
                 } else if (dealerSum > 21 || playerSum > dealerSum) {
                     message = "You Win!";
                     playSound("win.mp3");
                     profile.winBet();
-                    showCashIsKing();
+                    showSmellingMoney();
                     launchConfetti();
                 } else if (playerSum == dealerSum) {
                     message = "Tie!";
@@ -271,14 +272,14 @@ public class BlackJackController implements Initializable {
                 updateBetDisplay();
                 gameInProgress = false;
 
-                if (profile.getBalance() > 1000) showCashIsKing();
+                if (profile.getBalance() > 1100) showCashIsKing();
             });
         });
 
         flipOut.play();
     }
 
-    private void showCashIsKing() {
+    private void showSmellingMoney() {
         URL gifUrl = getClass().getResource("/images/smellingMoney.gif");
         if (gifUrl == null) {
             System.out.println("Could not find the GIF!");
@@ -293,6 +294,64 @@ public class BlackJackController implements Initializable {
         view.setLayoutY(200);
 
         gamePane.getChildren().add(view); // Add first to ensure animation plays
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), view);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setDelay(Duration.seconds(2));
+        fadeOut.setOnFinished(e -> gamePane.getChildren().remove(view));
+
+        new SequentialTransition(fadeIn, fadeOut).play();
+    }
+
+    private void showCashIsKing() {
+        URL gifUrl = getClass().getResource("/images/cashisking.jpg");
+        if (gifUrl == null) {
+            System.out.println("Could not find the GIF!");
+            return;
+        }
+
+        Image gifImage = new Image(gifUrl.toExternalForm());
+        ImageView view = new ImageView(gifImage);
+        view.setFitWidth(400);
+        view.setPreserveRatio(true);
+        view.setLayoutX(300);
+        view.setLayoutY(200);
+
+        gamePane.getChildren().add(view);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), view);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setDelay(Duration.seconds(2));
+        fadeOut.setOnFinished(e -> gamePane.getChildren().remove(view));
+
+        new SequentialTransition(fadeIn, fadeOut).play();
+    }
+
+    private void showTears() {
+        URL gifUrl = getClass().getResource("/images/long-tears.gif");
+        if (gifUrl == null) {
+            System.out.println("Could not find the GIF!");
+            return;
+        }
+
+        Image gifImage = new Image(gifUrl.toExternalForm());
+        ImageView view = new ImageView(gifImage);
+        view.setFitWidth(400);
+        view.setPreserveRatio(true);
+        view.setLayoutX(300);
+        view.setLayoutY(200);
+
+        gamePane.getChildren().add(view);
 
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
         fadeIn.setFromValue(0);
