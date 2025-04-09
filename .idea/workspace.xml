@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RouletteComingSoon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/RouletteSpinner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Slots.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SlotsBackgreoundBlack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SlotsBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -53,22 +53,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bergu/Downloads/HBV201G-forrit-main/HBV201G-forrit-main/Vika6/SafeCasino/src/main/resources/images"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bergu/Desktop/SafeCasino-1.0&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bergu\Downloads\HBV201G-forrit-main\HBV201G-forrit-main\Vika6\SafeCasino\src\main\resources\images" />
@@ -174,8 +174,27 @@
       <option name="project" value="LOCAL" />
       <updated>1743789420834</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Bætt við til baka takki, og útlitslagfæringar (loka Demo),">
+      <option name="closed" value="true" />
+      <created>1743792865573</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743792865573</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
@@ -183,6 +202,7 @@
     <MESSAGE value="Controllers og fxml skrár" />
     <MESSAGE value="útlits lagfæringar og gif" />
     <MESSAGE value="útlits lagfæringar og bætt við gif" />
-    <option name="LAST_COMMIT_MESSAGE" value="útlits lagfæringar og bætt við gif" />
+    <MESSAGE value="Bætt við til baka takki, og útlitslagfæringar (loka Demo)," />
+    <option name="LAST_COMMIT_MESSAGE" value="Bætt við til baka takki, og útlitslagfæringar (loka Demo)," />
   </component>
 </project>

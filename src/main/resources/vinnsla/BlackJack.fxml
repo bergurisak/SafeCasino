@@ -99,7 +99,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </Button>
-            <Button layoutX="824.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToMenu" prefHeight="40.0" prefWidth="99.0" text="Back" />
+            <Button layoutX="824.0" layoutY="695.0" mnemonicParsing="false" onAction="#BackToMenu" prefHeight="40.0" prefWidth="99.0" text="Back" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="824.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="695.0" />
          </children>
       </AnchorPane>
   </children>

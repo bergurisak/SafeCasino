@@ -44,4 +44,13 @@ public class PlayerProfile {
         balance += currentBet;
         currentBet = 0;
     }
+    public void increaseBalance(int amount) {
+        balance += amount;
+    }
+
+    public void decreaseBalance(int amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        }
+    }
 }

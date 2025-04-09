@@ -1,0 +1,43 @@
+.root {
+-fx-background-image: url('../images/SlotsBackgreoundBlack.png');
+-fx-background-size: cover;
+}
+
+.title-bar {
+    -fx-background-color: #006400 ;
+    -fx-padding: 10px;
+    -fx-alignment: center-left;
+}
+
+.text {
+     -fx-font-size: 18;
+     -fx-font-family: 'Times New Roman', Times, serif;
+     -fx-font-weight: bold;
+     -fx-background: radial-gradient(circle, gold, goldenrod);
+     -fx-webkit-background-clip: text;
+     -fx-webkit-text-fill-color: transparent;
+     -fx-background-clip: text;
+     -fx-color: #FFE55C;
+}
+
+.Text {
+     -fx-font-size: 18;
+     -fx-font-family: 'Times New Roman', Times, serif;
+     -fx-font-weight: bold;
+     -fx-background: radial-gradient(circle, gold, goldenrod);
+     -fx-webkit-background-clip: text;
+     -fx-webkit-text-fill-color: transparent;
+     -fx-background-clip: text;
+     -fx-color: #FFE55C;
+}
+
+.button {
+    -fx-background-color: #FAF9F6;
+    -fx-text-fill: #4E6A54;
+    -fx-font-size: 12;
+    -fx-font-family:"Times New Roman";
+    -fx-font-weight: bold;
+    -fx-padding: 8px 18px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+ }

@@ -31,6 +31,25 @@ public class SafeCasinoController {
         }
     }
     @FXML
+    private void startSlots(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/Slots.fxml"));
+            Parent root = loader.load();
+
+            SlotsController controller = loader.getController();
+            controller.setProfile(profile);
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Slots");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void startRoulette(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/Roulette.fxml"));

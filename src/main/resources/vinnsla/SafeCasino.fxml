@@ -12,7 +12,8 @@
             <Image url="@../images/SClogo.png" />
          </image>
       </ImageView>
-      <Button layoutX="329.0" layoutY="628.0" mnemonicParsing="false" onAction="#startBlackjack" text="Blackjack" />
-      <Button layoutX="569.0" layoutY="628.0" mnemonicParsing="false" onAction="#startRoulette" text="Roullete" />
+      <Button layoutX="298.0" layoutY="628.0" mnemonicParsing="false" onAction="#startBlackjack" prefHeight="40.0" prefWidth="118.0" text="Blackjack" />
+      <Button layoutX="585.0" layoutY="628.0" mnemonicParsing="false" onAction="#startRoulette" prefHeight="40.0" prefWidth="118.0" text="Roullete" />
+      <Button layoutX="442.0" layoutY="628.0" mnemonicParsing="false" onAction="#startSlots" prefHeight="40.0" prefWidth="118.0" text="Slots" />
    </children>
 </AnchorPane>
