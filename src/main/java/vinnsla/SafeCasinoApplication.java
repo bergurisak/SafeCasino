@@ -14,6 +14,7 @@ public class SafeCasinoApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(SafeCasinoApplication.class.getResource("SafeCasino.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 800);
         stage.setTitle("Safe Casino!");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

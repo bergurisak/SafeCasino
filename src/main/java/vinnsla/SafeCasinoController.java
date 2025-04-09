@@ -30,6 +30,7 @@ public class SafeCasinoController {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Blackjack");
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e) {
@@ -48,6 +49,7 @@ public class SafeCasinoController {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Slots");
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e) {
@@ -67,6 +69,7 @@ public class SafeCasinoController {
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Roulette");
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e) {

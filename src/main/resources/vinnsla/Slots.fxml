@@ -11,12 +11,22 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@../css/Slots.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.SlotsController">
    <children>
-      <Text fx:id="slotDisplay" layoutX="384.0" layoutY="469.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="231.59991455078125">
+      <Text fx:id="slot1" layoutX="371.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="76.39999999999998">
          <font>
             <Font size="64.0" />
          </font></Text>
-      <Label fx:id="resultLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="174.0" prefHeight="20.0" prefWidth="280.0" textAlignment="CENTER" />
-      <Label fx:id="balanceLabel" layoutX="336.0" layoutY="529.0" prefHeight="20.0" prefWidth="166.0" />
+      <Text fx:id="slot2" layoutX="462.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="76.39999999999998">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Text fx:id="slot3" layoutX="549.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="76.39999999999998">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Label fx:id="resultLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="188.0" prefHeight="31.0" prefWidth="280.0" textAlignment="CENTER" />
+      <Label fx:id="balanceLabel" layoutX="334.0" layoutY="537.0" prefHeight="20.0" prefWidth="166.0" />
       <TextField fx:id="betField" layoutX="310.0" layoutY="613.0" prefHeight="31.0" prefWidth="166.0" />
       <Button layoutX="616.0" layoutY="611.0" mnemonicParsing="false" onAction="#spin" text="Splin" />
       <Button layoutX="879.0" layoutY="744.0" mnemonicParsing="false" onAction="#BackToMenu" stylesheets="@../css/SafeCasino.css" text="Back" />

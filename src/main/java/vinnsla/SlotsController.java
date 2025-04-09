@@ -1,15 +1,16 @@
 package vinnsla;
 
+import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.animation.*;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.util.Random;
@@ -19,30 +20,16 @@ public class SlotsController {
     private PlayerProfile profile;
     private int currentBet = 0;
 
+    private AudioClip spinSound;
+
     @FXML private Label balanceLabel;
     @FXML private TextField betField;
     @FXML private Label resultLabel;
-    @FXML private Text slotDisplay;
+    @FXML private Text slot1;
+    @FXML private Text slot2;
+    @FXML private Text slot3;
 
     private final String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
-
-    @FXML
-    private void BackToMenu(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/SafeCasino.fxml"));
-            Parent root = loader.load();
-
-            SafeCasinoController controller = loader.getController();
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("SafeCasino");
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
@@ -72,35 +59,6 @@ public class SlotsController {
             resultLabel.setText("Please enter a valid number.");
         }
     }
-    private void celebrateWin(String message) {
-        resultLabel.setText(message);
-        resultLabel.setTextFill(Color.GOLD);
-
-        // Scale pop animation
-        ScaleTransition scale = new ScaleTransition(Duration.seconds(1.0), resultLabel);
-        scale.setFromX(1);
-        scale.setFromY(1);
-        scale.setToX(1.5);
-        scale.setToY(1.5);
-        scale.setCycleCount(2);
-        scale.setAutoReverse(true);
-
-        // Fade in/out animation
-        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), resultLabel);
-        fade.setFromValue(0);
-        fade.setToValue(1);
-        fade.setCycleCount(2);
-        fade.setAutoReverse(true);
-
-        // Reset text color after delay
-        PauseTransition resetColor = new PauseTransition(Duration.seconds(2));
-        resetColor.setOnFinished(e -> resultLabel.setTextFill(Color.BLACK));
-
-        // Play all
-        scale.play();
-        fade.play();
-        resetColor.play();
-    }
 
     @FXML
     private void spin() {
@@ -119,31 +77,98 @@ public class SlotsController {
             return;
         }
 
+        // Deduct bet from balance
         profile.decreaseBalance(currentBet);
 
-
+        // Spin the slots
         String[] row = spinRow();
-        slotDisplay.setText(String.join(" ", row));
+        animateReels(row);
+        playSound("spin.mp3");
 
         int payout = getPayout(row, currentBet);
 
-        if (payout > 0) {
-            profile.increaseBalance(payout);
-            celebrateWin("You won $" + payout + "!");
-        } else {
-            resultLabel.setText("Sorry, you lost.");
-        }
-
-        updateBalanceDisplay();
+        // Delay result until animation completes
+        PauseTransition pause = new PauseTransition(Duration.millis(1200));
+        pause.setOnFinished(e -> {
+            if (payout > 0) {
+                profile.increaseBalance(payout);
+                playSound("winSlots.mp3");
+                celebrateWin("You won $" + payout + "!");
+            } else {
+                resultLabel.setText("Sorry, you lost.");
+            }
+            updateBalanceDisplay();
+        });
+        pause.play();
     }
 
-    private String[] spinRow() {
-        String[] row = new String[3];
-        Random random = new Random();
+    private void animateReels(String[] finalRow) {
+        Text[] reels = {slot1, slot2, slot3};
+        Random rand = new Random();
+
         for (int i = 0; i < 3; i++) {
-            row[i] = symbols[random.nextInt(symbols.length)];
+            Text reel = reels[i];
+            int index = i;
+            Timeline timeline = new Timeline();
+
+            for (int j = 0; j < 15 + index * 5; j++) {
+                int delay = j * 50;
+                timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay), e -> {
+                    reel.setText(symbols[rand.nextInt(symbols.length)]);
+                }));
+            }
+
+            timeline.getKeyFrames().add(new KeyFrame(Duration.millis((15 + index * 5) * 50), e -> {
+                reel.setText(finalRow[index]);
+            }));
+
+            timeline.play();
         }
-        return row;
+    }
+
+    private void celebrateWin(String message) {
+        resultLabel.setText(message);
+        resultLabel.setTextFill(Color.GOLD);
+
+        ScaleTransition scale = new ScaleTransition(Duration.seconds(0.3), resultLabel);
+        scale.setFromX(1);
+        scale.setFromY(1);
+        scale.setToX(1.5);
+        scale.setToY(1.5);
+        scale.setCycleCount(2);
+        scale.setAutoReverse(true);
+
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), resultLabel);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.setCycleCount(2);
+        fade.setAutoReverse(true);
+
+        PauseTransition resetColor = new PauseTransition(Duration.seconds(2));
+        resetColor.setOnFinished(e -> resultLabel.setTextFill(Color.BLACK));
+
+        scale.play();
+        fade.play();
+        resetColor.play();
+    }
+
+    private void playSound(String fileName) {
+        try {
+            // Stop previous spin sound if it's playing
+            if (fileName.equals("spin.mp3") && spinSound != null) {
+                spinSound.stop();
+            }
+
+            AudioClip sound = new AudioClip(getClass().getResource("/mp3/" + fileName).toExternalForm());
+            if (fileName.equals("spin.mp3")) {
+                spinSound = sound;
+            }
+
+            sound.play();
+        } catch (Exception e) {
+            System.out.println("Sound failed: " + fileName);
+            e.printStackTrace();
+        }
     }
 
     private int getPayout(String[] row, int bet) {
@@ -170,7 +195,34 @@ public class SlotsController {
         return 0;
     }
 
+    private String[] spinRow() {
+        String[] row = new String[3];
+        Random random = new Random();
+        for (int i = 0; i < 3; i++) {
+            row[i] = symbols[random.nextInt(symbols.length)];
+        }
+        return row;
+    }
+
     private void updateBalanceDisplay() {
         balanceLabel.setText("Balance: $" + profile.getBalance());
+    }
+
+    @FXML
+    private void BackToMenu(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/SafeCasino.fxml"));
+            Parent root = loader.load();
+
+            SafeCasinoController controller = loader.getController();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("SafeCasino");
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
