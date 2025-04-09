@@ -8,22 +8,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.animation.*;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.util.Random;
 
 public class SlotsController {
 
     private PlayerProfile profile;
-
-    public void setProfile(PlayerProfile profile) {
-        this.profile = profile;
-        updateBalanceDisplay();
-    }
+    private int currentBet = 0;
 
     @FXML private Label balanceLabel;
     @FXML private TextField betField;
     @FXML private Label resultLabel;
     @FXML private Text slotDisplay;
+
+    private final String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
 
     @FXML
     private void BackToMenu(ActionEvent event) {
@@ -43,7 +44,63 @@ public class SlotsController {
         }
     }
 
-    private final String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
+    public void setProfile(PlayerProfile profile) {
+        this.profile = profile;
+        updateBalanceDisplay();
+    }
+
+    @FXML
+    private void setBet() {
+        try {
+            int bet = Integer.parseInt(betField.getText());
+
+            if (bet <= 0) {
+                resultLabel.setText("Bet must be greater than 0.");
+                return;
+            }
+
+            if (profile.getBalance() < bet) {
+                resultLabel.setText("Insufficient balance for that bet.");
+                return;
+            }
+
+            currentBet = bet;
+            resultLabel.setText("Bet set to $" + currentBet + ". Now spin!");
+            betField.clear();
+
+        } catch (NumberFormatException e) {
+            resultLabel.setText("Please enter a valid number.");
+        }
+    }
+    private void celebrateWin(String message) {
+        resultLabel.setText(message);
+        resultLabel.setTextFill(Color.GOLD);
+
+        // Scale pop animation
+        ScaleTransition scale = new ScaleTransition(Duration.seconds(1.0), resultLabel);
+        scale.setFromX(1);
+        scale.setFromY(1);
+        scale.setToX(1.5);
+        scale.setToY(1.5);
+        scale.setCycleCount(2);
+        scale.setAutoReverse(true);
+
+        // Fade in/out animation
+        FadeTransition fade = new FadeTransition(Duration.seconds(0.5), resultLabel);
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.setCycleCount(2);
+        fade.setAutoReverse(true);
+
+        // Reset text color after delay
+        PauseTransition resetColor = new PauseTransition(Duration.seconds(2));
+        resetColor.setOnFinished(e -> resultLabel.setTextFill(Color.BLACK));
+
+        // Play all
+        scale.play();
+        fade.play();
+        resetColor.play();
+    }
 
     @FXML
     private void spin() {
@@ -52,40 +109,32 @@ public class SlotsController {
             return;
         }
 
-        int bet;
-        try {
-            bet = Integer.parseInt(betField.getText());
-            if (bet <= 0) {
-                resultLabel.setText("Bet must be greater than 0.");
-                return;
-            }
-            if (bet > profile.getBalance()) {
-                resultLabel.setText("Insufficient balance.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            resultLabel.setText("Enter a valid number.");
+        if (currentBet <= 0) {
+            resultLabel.setText("Set your bet first.");
             return;
         }
 
-        profile.decreaseBet(bet); // deduct bet
+        if (profile.getBalance() < currentBet) {
+            resultLabel.setText("Insufficient balance to spin.");
+            return;
+        }
+
+        profile.decreaseBalance(currentBet);
+
+
         String[] row = spinRow();
         slotDisplay.setText(String.join(" ", row));
 
-        int payout = getPayout(row, bet);
+        int payout = getPayout(row, currentBet);
+
         if (payout > 0) {
             profile.increaseBalance(payout);
-            resultLabel.setText("You won $" + payout + "!");
+            celebrateWin("You won $" + payout + "!");
         } else {
-            resultLabel.setText("Sorry, you lost this round.");
+            resultLabel.setText("Sorry, you lost.");
         }
 
         updateBalanceDisplay();
-        betField.clear();
-    }
-
-    private void updateBalanceDisplay() {
-        balanceLabel.setText("Balance: $" + profile.getBalance());
     }
 
     private String[] spinRow() {
@@ -119,5 +168,9 @@ public class SlotsController {
             };
         }
         return 0;
+    }
+
+    private void updateBalanceDisplay() {
+        balanceLabel.setText("Balance: $" + profile.getBalance());
     }
 }

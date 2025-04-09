@@ -8,7 +8,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SafeCasinoController {
+    public void setProfile(PlayerProfile profile) {
+        this.profile = profile;
+    }
     private PlayerProfile profile = new PlayerProfile(1000); // Shared player profile
+
+
+
 
 
 

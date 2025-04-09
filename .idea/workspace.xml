@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Slots.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SlotsBackgreoundBlack.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SlotsBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743792865573</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Slot leikur">
+      <option name="closed" value="true" />
+      <created>1744158528614</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744158528614</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +205,7 @@
     <MESSAGE value="útlits lagfæringar og gif" />
     <MESSAGE value="útlits lagfæringar og bætt við gif" />
     <MESSAGE value="Bætt við til baka takki, og útlitslagfæringar (loka Demo)," />
-    <option name="LAST_COMMIT_MESSAGE" value="Bætt við til baka takki, og útlitslagfæringar (loka Demo)," />
+    <MESSAGE value="Slot leikur" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slot leikur" />
   </component>
 </project>

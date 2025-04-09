@@ -18,12 +18,13 @@
       <Label fx:id="resultLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="360.0" layoutY="174.0" prefHeight="20.0" prefWidth="280.0" textAlignment="CENTER" />
       <Label fx:id="balanceLabel" layoutX="336.0" layoutY="529.0" prefHeight="20.0" prefWidth="166.0" />
       <TextField fx:id="betField" layoutX="310.0" layoutY="613.0" prefHeight="31.0" prefWidth="166.0" />
-      <Button layoutX="574.0" layoutY="611.0" mnemonicParsing="false" onAction="#spin" text="Splin" />
+      <Button layoutX="616.0" layoutY="611.0" mnemonicParsing="false" onAction="#spin" text="Splin" />
       <Button layoutX="879.0" layoutY="744.0" mnemonicParsing="false" onAction="#BackToMenu" stylesheets="@../css/SafeCasino.css" text="Back" />
       <ImageView fitHeight="202.0" fitWidth="188.0" layoutX="812.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/scLogoClear.png" />
          </image>
       </ImageView>
+      <Button layoutX="486.0" layoutY="611.0" mnemonicParsing="false" onAction="#setBet" prefHeight="36.0" prefWidth="92.0" text="Set Bet" />
    </children>
 </AnchorPane>
