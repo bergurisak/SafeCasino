@@ -7,29 +7,36 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
+import javafx.scene.effect.GaussianBlur;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.Random;
 
 public class SlotsController {
-
     private PlayerProfile profile;
     private int currentBet = 0;
-
     private AudioClip spinSound;
 
-    @FXML private Label balanceLabel;
-    @FXML private TextField betField;
-    @FXML private Label resultLabel;
-    @FXML private Text slot1;
-    @FXML private Text slot2;
-    @FXML private Text slot3;
+    @FXML
+    private Label balanceLabel;
+    @FXML
+    private TextField betField;
+    @FXML
+    private Label resultLabel;
+    @FXML
+    private ImageView slot1;
+    @FXML
+    private ImageView slot2;
+    @FXML
+    private ImageView slot3;
 
-    private final String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
+    private final String[] symbolNames = {"cherry", "melon", "lemon", "bell", "star"};
+    //private final String[] symbols = {"🍒", "🍉", "🍋", "🔔", "⭐"};
 
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
@@ -77,17 +84,14 @@ public class SlotsController {
             return;
         }
 
-        // Deduct bet from balance
         profile.decreaseBalance(currentBet);
 
-        // Spin the slots
         String[] row = spinRow();
         animateReels(row);
-        playSound("spin.mp3");
+        playSound("spin4.mp3");
 
         int payout = getPayout(row, currentBet);
 
-        // Delay result until animation completes
         PauseTransition pause = new PauseTransition(Duration.millis(1200));
         pause.setOnFinished(e -> {
             if (payout > 0) {
@@ -103,28 +107,69 @@ public class SlotsController {
     }
 
     private void animateReels(String[] finalRow) {
-        Text[] reels = {slot1, slot2, slot3};
+        ImageView[] reels = {slot1, slot2, slot3};
         Random rand = new Random();
 
         for (int i = 0; i < 3; i++) {
-            Text reel = reels[i];
-            int index = i;
-            Timeline timeline = new Timeline();
+            final int index = i;
+            final ImageView reel = reels[index];
 
-            for (int j = 0; j < 15 + index * 5; j++) {
-                int delay = j * 50;
-                timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay), e -> {
-                    reel.setText(symbols[rand.nextInt(symbols.length)]);
+            GaussianBlur blur = new GaussianBlur(10);
+            reel.setEffect(blur);
+
+            TranslateTransition shake = new TranslateTransition(Duration.millis(80), reel);
+            shake.setFromX(-3);
+            shake.setToX(3);
+            shake.setCycleCount(Animation.INDEFINITE);
+            shake.setAutoReverse(true);
+            shake.play();
+
+            Timeline spin = new Timeline();
+            int spinFrames = 50 + index * 10;
+            int frameDelay = 25;
+            int totalDuration = spinFrames * frameDelay;
+
+            for (int j = 0; j < spinFrames; j++) {
+                int delay = j * frameDelay;
+                spin.getKeyFrames().add(new KeyFrame(Duration.millis(delay), e -> {
+                    String randomSymbol = symbolNames[rand.nextInt(symbolNames.length)];
+                    showSymbolImage(reel, randomSymbol);
                 }));
             }
 
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis((15 + index * 5) * 50), e -> {
-                reel.setText(finalRow[index]);
+            spin.getKeyFrames().add(new KeyFrame(Duration.millis(totalDuration), e -> {
+                showSymbolImage(reel, finalRow[index]);
+
+                GaussianBlur currentBlur = (GaussianBlur) reel.getEffect();
+
+                Timeline blurFade = new Timeline(
+                        new KeyFrame(Duration.ZERO, new KeyValue(currentBlur.radiusProperty(), 10)),
+                        new KeyFrame(Duration.millis(250), new KeyValue(currentBlur.radiusProperty(), 0))
+                );
+                blurFade.setOnFinished(evt -> reel.setEffect(null));
+                blurFade.play();
+
+                shake.stop();
+                reel.setTranslateX(0);
             }));
 
-            timeline.play();
+            spin.play();
         }
     }
+
+    private void showSymbolImage(ImageView imageView, String symbolName) {
+        try {
+            String path = "/images/" + symbolName + ".png";
+            Image image = new Image(getClass().getResource(path).toExternalForm(), true);
+            imageView.setImage(image);
+            imageView.setSmooth(true);
+            System.out.println("Spinning: " + symbolName);
+        } catch (Exception e) {
+            System.out.println("Failed to load image: " + symbolName);
+            e.printStackTrace();
+        }
+    }
+
 
     private void celebrateWin(String message) {
         resultLabel.setText(message);
@@ -154,13 +199,12 @@ public class SlotsController {
 
     private void playSound(String fileName) {
         try {
-            // Stop previous spin sound if it's playing
-            if (fileName.equals("spin.mp3") && spinSound != null) {
+            if (fileName.equals("spin2.mp3") && spinSound != null) {
                 spinSound.stop();
             }
 
             AudioClip sound = new AudioClip(getClass().getResource("/mp3/" + fileName).toExternalForm());
-            if (fileName.equals("spin.mp3")) {
+            if (fileName.equals("spin2.mp3")) {
                 spinSound = sound;
             }
 
@@ -174,21 +218,21 @@ public class SlotsController {
     private int getPayout(String[] row, int bet) {
         if (row[0].equals(row[1]) && row[1].equals(row[2])) {
             return switch (row[0]) {
-                case "🍒" -> bet * 3;
-                case "🍉" -> bet * 4;
-                case "🍋" -> bet * 5;
-                case "🔔" -> bet * 10;
-                case "⭐" -> bet * 20;
+                case "cherry"-> bet * 3;
+                case "melon" -> bet * 4;
+                case "lemon" -> bet * 5;
+                case "bell"  -> bet * 10;
+                case "star"  -> bet * 20;
                 default -> 0;
             };
         } else if (row[0].equals(row[1]) || row[1].equals(row[2])) {
             String match = row[0].equals(row[1]) ? row[0] : row[1];
             return switch (match) {
-                case "🍒" -> bet * 2;
-                case "🍉" -> bet * 3;
-                case "🍋" -> bet * 4;
-                case "🔔" -> bet * 5;
-                case "⭐" -> bet * 10;
+                case "cherry"-> bet * 2;
+                case "melon" -> bet * 3;
+                case "lemon" -> bet * 4;
+                case "bell"  -> bet * 5;
+                case "star"  -> bet * 10;
                 default -> 0;
             };
         }
@@ -197,9 +241,9 @@ public class SlotsController {
 
     private String[] spinRow() {
         String[] row = new String[3];
-        Random random = new Random();
+        Random rand = new Random();
         for (int i = 0; i < 3; i++) {
-            row[i] = symbols[random.nextInt(symbols.length)];
+            row[i] = symbolNames[rand.nextInt(symbolNames.length)];
         }
         return row;
     }
