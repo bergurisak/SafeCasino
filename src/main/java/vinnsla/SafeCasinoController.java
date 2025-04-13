@@ -5,13 +5,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class SafeCasinoController {
     public void setProfile(PlayerProfile profile) {
         this.profile = profile;
     }
-    private PlayerProfile profile = new PlayerProfile(1000); // Shared player profile
+    private PlayerProfile profile = new PlayerProfile(1000);
 
 
 
@@ -47,6 +48,7 @@ public class SafeCasinoController {
             controller.setProfile(profile);
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/star.png")));
             stage.setScene(new Scene(root));
             stage.setTitle("Slots");
             stage.setResizable(false);

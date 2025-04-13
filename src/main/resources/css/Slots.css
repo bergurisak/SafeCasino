@@ -32,12 +32,12 @@
 }
 
 .button {
-    -fx-background-color: #FAF9F6;
+    -fx-background-color: #FFE55C;
     -fx-text-fill: #4E6A54;
-    -fx-font-size: 12;
+    -fx-font-size: 10;
     -fx-font-family:"Times New Roman";
     -fx-font-weight: bold;
-    -fx-padding: 8px 18px;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    -fx-padding: 4px 9px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
  }

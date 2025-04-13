@@ -79,6 +79,8 @@ public class BlackJackController implements Initializable {
         }
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         hitButton.setDisable(true);
@@ -317,7 +319,7 @@ public class BlackJackController implements Initializable {
         view.setLayoutX(300);
         view.setLayoutY(200);
 
-        gamePane.getChildren().add(view); // Add first to ensure animation plays
+        gamePane.getChildren().add(view);
 
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
         fadeIn.setFromValue(0);

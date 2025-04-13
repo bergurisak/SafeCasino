@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/SlotMachine.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/cherry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_4_2025,_13_44_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_4_2025__13_44__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/Slots.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Slots.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Menu.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,26 +59,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/bergu/Desktop/SafeCasino-1.0",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.general"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bergu/Desktop/SafeCasino-1.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bergu\Downloads\HBV201G-forrit-main\HBV201G-forrit-main\Vika6\SafeCasino\src\main\resources\images" />
@@ -213,7 +217,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744210650338</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Slot leikur uppfærður.&#10;&#10;komnar myndir i slots, hljóð lagað">
+      <option name="closed" value="true" />
+      <created>1744235533891</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744235533891</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +249,7 @@
     <MESSAGE value="Slot leikur" />
     <MESSAGE value="Slot leikur uppfærður" />
     <MESSAGE value="Slot leikur bættur við og uppfærður.&#10;&#10;ekki hægt að breyta stærð á guggum lengur." />
-    <option name="LAST_COMMIT_MESSAGE" value="Slot leikur bættur við og uppfærður.&#10;&#10;ekki hægt að breyta stærð á guggum lengur." />
+    <MESSAGE value="Slot leikur uppfærður.&#10;&#10;komnar myndir i slots, hljóð lagað" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slot leikur uppfærður.&#10;&#10;komnar myndir i slots, hljóð lagað" />
   </component>
 </project>
