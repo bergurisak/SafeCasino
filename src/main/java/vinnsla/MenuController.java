@@ -9,11 +9,6 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class MenuController {
-    private PlayerProfile profile = new PlayerProfile(1000);
-
-    public void setProfile(PlayerProfile profile) {
-        this.profile = profile;
-    }
 
     @FXML
     private void closeHandler() {
@@ -70,17 +65,17 @@ public class MenuController {
 
     @FXML
     private void startBlackjack(ActionEvent event) {
-        loadSceneWithProfile("/vinnsla/BlackJack.fxml", event, "Blackjack");
+        loadScene("/vinnsla/BlackJack.fxml", event, "Blackjack");
     }
 
     @FXML
     private void startRoulette(ActionEvent event) {
-        loadSceneWithProfile("/vinnsla/Roulette.fxml", event, "Roulette");
+        loadScene("/vinnsla/Roulette.fxml", event, "Roulette");
     }
 
     @FXML
     private void startSlots(ActionEvent event) {
-        loadSceneWithProfile("/vinnsla/Slots.fxml", event, "Slots");
+        loadScene("/vinnsla/Slots.fxml", event, "Slots");
     }
 
     private void showAlert(String title, String message) {
@@ -101,31 +96,7 @@ public class MenuController {
             stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void loadSceneWithProfile(String fxmlPath, ActionEvent event, String title) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Parent root = loader.load();
-
-            Object controller = loader.getController();
-            if (controller instanceof BlackJackController blackjack) {
-                blackjack.setProfile(profile);
-            } else if (controller instanceof RouletteController roulette) {
-                roulette.setProfile(profile);
-            } else if (controller instanceof SlotsController slots) {
-                slots.setProfile(profile);
-            }
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle(title);
-            stage.setResizable(false);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Optional: replace with Logger if desired
         }
     }
 }

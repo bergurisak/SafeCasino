@@ -1,3 +1,4 @@
+
 package vinnsla;
 
 import javafx.animation.*;
@@ -22,17 +23,14 @@ import javafx.util.Duration;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class BlackJackController implements Initializable {
-    private PlayerProfile profile;
+    private static final Logger logger = Logger.getLogger(BlackJackController.class.getName());
+
+    private final PlayerProfile profile = CasinoSession.getProfile();
     private boolean gameInProgress = false;
-
-    public void setProfile(PlayerProfile profile) {
-        this.profile = profile;
-        System.out.println("Profile set: $" + profile.getBalance());
-        updateBetDisplay();
-
-    }
 
     @FXML private Text balanceText;
     @FXML private Text betText;
@@ -75,11 +73,9 @@ public class BlackJackController implements Initializable {
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Failed to return to menu.", e);
         }
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,6 +83,9 @@ public class BlackJackController implements Initializable {
         stayButton.setDisable(true);
         updateBetDisplay();
     }
+
+    // ... rest of the file remains unchanged
+
 
     @FXML
     private void deal() {
@@ -291,6 +290,10 @@ public class BlackJackController implements Initializable {
                     message = "You Lose!";
                     playSound("lose.mp3");
                     profile.loseBet();
+
+                    if (profile.getBalance() <= 0) {
+                        showBankruptImage();
+                    }
                 }
 
                 resultText.setText(message);
@@ -477,6 +480,38 @@ public class BlackJackController implements Initializable {
         if (profile != null) {
             profile.decreaseBet(10);
             updateBetDisplay();
+        }
+    }
+
+    private void showBankruptImage() {
+        try {
+            Image image = new Image(getClass().getResource("/images/broke.png").toExternalForm());
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(400);
+            imageView.setPreserveRatio(true);
+            imageView.setLayoutX(300);
+            imageView.setLayoutY(200);
+
+            // 👇 prevent it from blocking clicks
+            imageView.setMouseTransparent(true);
+
+            gamePane.getChildren().add(imageView);
+
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), imageView);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+
+            PauseTransition pause = new PauseTransition(Duration.seconds(3));
+
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), imageView);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+
+            fadeOut.setOnFinished(e -> gamePane.getChildren().remove(imageView));
+
+            new SequentialTransition(fadeIn, pause, fadeOut).play();
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Failed to show bankrupt image", e);
         }
     }
 }

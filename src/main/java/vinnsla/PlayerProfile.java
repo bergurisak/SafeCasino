@@ -53,4 +53,7 @@ public class PlayerProfile {
             balance -= amount;
         }
     }
+
+    public void setBalance(int i) {
+    }
 }
