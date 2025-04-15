@@ -13,7 +13,7 @@
          </image>
       </ImageView>
       <Button layoutX="298.0" layoutY="628.0" mnemonicParsing="false" onAction="#startBlackjack" prefHeight="40.0" prefWidth="118.0" text="Blackjack" />
-      <Button layoutX="585.0" layoutY="628.0" mnemonicParsing="false" onAction="#startRoulette" prefHeight="40.0" prefWidth="118.0" text="Roullete" />
+      <Button layoutX="585.0" layoutY="628.0" mnemonicParsing="false" onAction="#startRoulette" prefHeight="40.0" prefWidth="118.0" text="Roulette" />
       <Button layoutX="442.0" layoutY="628.0" mnemonicParsing="false" onAction="#startSlots" prefHeight="40.0" prefWidth="118.0" text="Slots" />
    </children>
 </AnchorPane>

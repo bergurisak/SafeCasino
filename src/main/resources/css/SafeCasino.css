@@ -41,3 +41,28 @@
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
  }
+
+ .golden-button {
+     -fx-background-color: linear-gradient(#ffd700, #e6be00);
+     -fx-text-fill: black;
+     -fx-font-size: 16px;
+     -fx-font-weight: bold;
+     -fx-background-radius: 10;
+     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 2);
+     -fx-border-color: #caa300;
+     -fx-border-width: 2px;
+     -fx-border-radius: 10;
+ }
+ .golden-button:hover {
+     -fx-background-color: linear-gradient(#fff1a8, #e6c700);
+ }
+.roulette-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #fff-fff;
+}
+
+.roulette-result {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: gold;
+}

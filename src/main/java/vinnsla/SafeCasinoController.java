@@ -6,18 +6,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SafeCasinoController {
-    public void setProfile(PlayerProfile profile) {
-        this.profile = profile;
+    private static final Logger logger = Logger.getLogger(SafeCasinoController.class.getName());
+
+    private final PlayerProfile profile = CasinoSession.getProfile();
+
+    @FXML
+    private Label balanceLabel;
+
+    @FXML
+    public void initialize() {
+        updateBalanceDisplay();
     }
-    private PlayerProfile profile = new PlayerProfile(1000);
 
-
-
-
-
+    private void updateBalanceDisplay() {
+        if (balanceLabel != null && profile != null) {
+            balanceLabel.setText("Balance: $" + profile.getBalance());
+        }
+    }
 
     @FXML
     private void startBlackjack(ActionEvent event) {
@@ -26,7 +37,7 @@ public class SafeCasinoController {
             Parent root = loader.load();
 
             BlackJackController controller = loader.getController();
-            controller.setProfile(profile);
+
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -35,9 +46,10 @@ public class SafeCasinoController {
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Failed to start Blackjack", e);
         }
     }
+
     @FXML
     private void startSlots(ActionEvent event) {
         try {
@@ -45,7 +57,7 @@ public class SafeCasinoController {
             Parent root = loader.load();
 
             SlotsController controller = loader.getController();
-            controller.setProfile(profile);
+
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/star.png")));
@@ -55,7 +67,7 @@ public class SafeCasinoController {
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Failed to start Slots", e);
         }
     }
 
@@ -65,9 +77,6 @@ public class SafeCasinoController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/Roulette.fxml"));
             Parent root = loader.load();
 
-            RouletteController controller = loader.getController();
-            controller.setProfile(profile);
-
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Roulette");
@@ -75,8 +84,7 @@ public class SafeCasinoController {
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Failed to start Roulette", e);
         }
     }
 }
-
