@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/vinnsla/CasinoSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/Roulette.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/broke.png" afterDir="false" />
+    <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="synced balance, roulette started">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/SafeCasino.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/SafeCasino.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744235533891</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="synced balance, roulette started">
+      <option name="closed" value="true" />
+      <created>1744681587898</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1744681587898</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +255,7 @@
     <MESSAGE value="Slot leikur uppfærður" />
     <MESSAGE value="Slot leikur bættur við og uppfærður.&#10;&#10;ekki hægt að breyta stærð á guggum lengur." />
     <MESSAGE value="Slot leikur uppfærður.&#10;&#10;komnar myndir i slots, hljóð lagað" />
-    <option name="LAST_COMMIT_MESSAGE" value="Slot leikur uppfærður.&#10;&#10;komnar myndir i slots, hljóð lagað" />
+    <MESSAGE value="synced balance, roulette started" />
+    <option name="LAST_COMMIT_MESSAGE" value="synced balance, roulette started" />
   </component>
 </project>

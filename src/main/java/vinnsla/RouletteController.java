@@ -30,6 +30,12 @@ public class RouletteController implements Initializable {
     @FXML private Label betLabel;
     @FXML private Label resultLabel;
     @FXML private TextField betNumberField;
+    @FXML private Button backButton;
+    @FXML private Button increaseBetButton;
+    @FXML private Button decreaseBetButton;
+    @FXML private Button spinButton;
+    @FXML private ImageView spinner;
+    @FXML private Label yourNumberLabel;
 
     private final PlayerProfile profile = CasinoSession.getProfile();
     private int betAmount = 0;
@@ -49,6 +55,30 @@ public class RouletteController implements Initializable {
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Failed to return to menu.", e);
         }
+    }
+
+
+    @FXML
+    private void handleStartPressed(ActionEvent event) {
+        // Show gameplay UI
+        balanceLabel.setVisible(true);
+        betLabel.setVisible(true);
+        resultLabel.setVisible(true);
+        betNumberField.setVisible(true);
+        increaseBetButton.setVisible(true);
+        decreaseBetButton.setVisible(true);
+        backButton.setVisible(true);
+        yourNumberLabel.setVisible(true);
+
+        // Swap start button for spin button
+        startButton.setVisible(false);
+        spinButton.setVisible(true);
+
+        // Animate spinner (optional visual effect on entry)
+        RotateTransition rotate = new RotateTransition(Duration.seconds(1), spinner);
+        rotate.setByAngle(360);
+        rotate.setInterpolator(Interpolator.EASE_OUT);
+        rotate.play();
     }
 
     private void updateBetDisplay() {
@@ -99,7 +129,6 @@ public class RouletteController implements Initializable {
         betAmount = 0;
         updateBetDisplay();
 
-        startButton.setDisable(true);
         resultLabel.setText("Spinning...");
 
         new Thread(() -> {
@@ -120,7 +149,6 @@ public class RouletteController implements Initializable {
             Platform.runLater(() -> {
                 resultLabel.setText("Ball landed on " + result + (win ? " — YOU WIN $" + winnings + "!" : " — You lost."));
                 updateBetDisplay();
-                startButton.setDisable(false);
             });
         }).start();
     }
@@ -128,6 +156,17 @@ public class RouletteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateBetDisplay();
+
+        // Hide controls until start is pressed
+        balanceLabel.setVisible(false);
+        betLabel.setVisible(false);
+        resultLabel.setVisible(false);
+        betNumberField.setVisible(false);
+        increaseBetButton.setVisible(false);
+        decreaseBetButton.setVisible(false);
+        backButton.setVisible(false);
+        yourNumberLabel.setVisible(false);
+        spinButton.setVisible(false);
     }
 
     private void checkIfBroke() {
@@ -144,8 +183,6 @@ public class RouletteController implements Initializable {
             imageView.setPreserveRatio(true);
             imageView.setLayoutX(300);
             imageView.setLayoutY(200);
-
-            // 👇 prevent it from blocking clicks
             imageView.setMouseTransparent(true);
 
             gamePane.getChildren().add(imageView);
