@@ -44,6 +44,7 @@ public class PlayerProfile {
         balance += currentBet;
         currentBet = 0;
     }
+
     public void increaseBalance(int amount) {
         balance += amount;
     }
@@ -54,6 +55,4 @@ public class PlayerProfile {
         }
     }
 
-    public void setBalance(int i) {
-    }
 }

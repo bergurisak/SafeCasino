@@ -35,10 +35,7 @@ public class SafeCasinoController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/BlackJack.fxml"));
             Parent root = loader.load();
-
             BlackJackController controller = loader.getController();
-
-
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Blackjack");
@@ -55,10 +52,7 @@ public class SafeCasinoController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/Slots.fxml"));
             Parent root = loader.load();
-
             SlotsController controller = loader.getController();
-
-
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/star.png")));
             stage.setScene(new Scene(root));
@@ -76,7 +70,6 @@ public class SafeCasinoController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vinnsla/Roulette.fxml"));
             Parent root = loader.load();
-
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Roulette");

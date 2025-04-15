@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -60,7 +59,6 @@ public class RouletteController implements Initializable {
 
     @FXML
     private void handleStartPressed(ActionEvent event) {
-        // Show gameplay UI
         balanceLabel.setVisible(true);
         betLabel.setVisible(true);
         resultLabel.setVisible(true);
@@ -69,12 +67,9 @@ public class RouletteController implements Initializable {
         decreaseBetButton.setVisible(true);
         backButton.setVisible(true);
         yourNumberLabel.setVisible(true);
-
-        // Swap start button for spin button
         startButton.setVisible(false);
         spinButton.setVisible(true);
 
-        // Animate spinner (optional visual effect on entry)
         RotateTransition rotate = new RotateTransition(Duration.seconds(1), spinner);
         rotate.setByAngle(360);
         rotate.setInterpolator(Interpolator.EASE_OUT);
@@ -156,8 +151,6 @@ public class RouletteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateBetDisplay();
-
-        // Hide controls until start is pressed
         balanceLabel.setVisible(false);
         betLabel.setVisible(false);
         resultLabel.setVisible(false);

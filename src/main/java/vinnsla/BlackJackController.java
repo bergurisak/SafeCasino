@@ -32,22 +32,28 @@ public class BlackJackController implements Initializable {
     private final PlayerProfile profile = CasinoSession.getProfile();
     private boolean gameInProgress = false;
 
-    @FXML private Text balanceText;
-    @FXML private Text betText;
-    @FXML private AnchorPane gamePane;
-    @FXML private AnchorPane cardPane;
-    @FXML private Button hitButton;
-    @FXML private Button stayButton;
-    @FXML private Button dealButton;
-    @FXML private Button backButton;
-    @FXML private Text resultText;
+    @FXML
+    private Text balanceText;
+    @FXML
+    private Text betText;
+    @FXML
+    private AnchorPane gamePane;
+    @FXML
+    private AnchorPane cardPane;
+    @FXML
+    private Button hitButton;
+    @FXML
+    private Button stayButton;
+    @FXML
+    private Button dealButton;
+    @FXML
+    private Text resultText;
 
     private final int CARD_WIDTH = 110;
     private final int CARD_HEIGHT = 154;
 
     private ArrayList<Card> deck;
     private final Random random = new Random();
-
     private Card hiddenCard;
     private ImageView hiddenCardBackImageView;
     private final ArrayList<Card> dealerHand = new ArrayList<>();
@@ -83,9 +89,6 @@ public class BlackJackController implements Initializable {
         stayButton.setDisable(true);
         updateBetDisplay();
     }
-
-    // ... rest of the file remains unchanged
-
 
     @FXML
     private void deal() {
@@ -300,8 +303,6 @@ public class BlackJackController implements Initializable {
                 animateResult();
                 updateBetDisplay();
                 gameInProgress = false;
-
-                if (profile.getBalance() > 1100) showCashIsKing();
             });
         });
 
@@ -337,35 +338,6 @@ public class BlackJackController implements Initializable {
         new SequentialTransition(fadeIn, fadeOut).play();
     }
 
-    private void showCashIsKing() {
-        URL gifUrl = getClass().getResource("/images/cashisking.jpg");
-        if (gifUrl == null) {
-            System.out.println("Could not find the GIF!");
-            return;
-        }
-
-        Image gifImage = new Image(gifUrl.toExternalForm());
-        ImageView view = new ImageView(gifImage);
-        view.setFitWidth(400);
-        view.setPreserveRatio(true);
-        view.setLayoutX(300);
-        view.setLayoutY(200);
-
-        gamePane.getChildren().add(view);
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), view);
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
-
-        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), view);
-        fadeOut.setFromValue(1);
-        fadeOut.setToValue(0);
-        fadeOut.setDelay(Duration.seconds(3));
-        fadeOut.setOnFinished(e -> gamePane.getChildren().remove(view));
-
-        new SequentialTransition(fadeIn, fadeOut).play();
-    }
-
     private void showTears() {
         URL gifUrl = getClass().getResource("/images/long-tears.gif");
         if (gifUrl == null) {
@@ -394,7 +366,6 @@ public class BlackJackController implements Initializable {
 
         new SequentialTransition(fadeIn, fadeOut).play();
     }
-
 
 
     private void launchConfetti() {
@@ -491,10 +462,7 @@ public class BlackJackController implements Initializable {
             imageView.setPreserveRatio(true);
             imageView.setLayoutX(300);
             imageView.setLayoutY(200);
-
-            // 👇 prevent it from blocking clicks
             imageView.setMouseTransparent(true);
-
             gamePane.getChildren().add(imageView);
 
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), imageView);

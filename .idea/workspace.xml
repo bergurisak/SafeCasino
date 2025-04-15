@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32360bd1-064c-4c39-8813-f39f8eb9d483" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_4_2025,_13_44_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_4_2025__13_44__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_4_2025__12_42__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_4_2025__12_42__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_2025__14_54__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_2025__14_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_2025__16_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_4_2025__16_48__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/BlackJackController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/PlayerProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/RouletteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SafeCasinoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vinnsla/SlotsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Slots.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Slots.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/RouletteComingSoon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/SlotsBackgreoundBlack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/SlotsBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/playTheGameLilBro.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/tableOutlines.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/BlackJack.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Roulette.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/vinnsla/Slots.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -6,22 +6,16 @@
 
 <AnchorPane pickOnBounds="false" prefHeight="800.0" prefWidth="1000.0" stylesheets="@../css/SafeCasino.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vinnsla.RouletteController">
    <children>
-
-      <!-- Top-right logo -->
       <ImageView fitHeight="212.0" fitWidth="210.0" layoutX="790.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/scLogoClear.png" />
          </image>
       </ImageView>
-
-      <!-- "ROULETTE" text image -->
       <ImageView fitHeight="678.0" fitWidth="674.0" layoutX="163.0" layoutY="-81.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Roulette.png" />
          </image>
       </ImageView>
-
-      <!-- Roulette wheel -->
       <Pane layoutX="39.0" layoutY="203.0" prefHeight="575.0" prefWidth="923.0">
          <children>
             <ImageView fitHeight="775.0" fitWidth="766.0" layoutX="79.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" rotate="-6.3">
@@ -31,18 +25,14 @@
             </ImageView>
          </children>
       </Pane>
-
-      <!-- Start button -->
       <Button fx:id="startButton" layoutX="440" layoutY="320" onAction="#handleStartPressed" prefHeight="45" prefWidth="120" styleClass="golden-button" text="START" />
 
-      <!-- Back button -->
       <Button fx:id="backButton"
               layoutX="822.0" layoutY="717.0"
               mnemonicParsing="false"
               onAction="#BackToMenu"
               prefHeight="40.0" prefWidth="99.0"
               text="Back" />
-
       <Button fx:id="spinButton"
               layoutX="440" layoutY="320"
               prefHeight="45" prefWidth="120"
@@ -50,20 +40,12 @@
               text="SPIN"
               visible="false"
               onAction="#startRoulette"/>
-      <!-- Balance and bet display -->
       <Label fx:id="balanceLabel" layoutX="60.0" layoutY="440.0" styleClass="roulette-label" text="Balance: $" />
       <Label fx:id="betLabel" layoutX="60.0" layoutY="480.0" styleClass="roulette-label" text="Bet: $" />
-
-      <!-- Bet adjustment buttons -->
       <Button fx:id="increaseBetButton" layoutX="180.0" layoutY="470.0" onAction="#increaseBet" text="+" />
       <Button fx:id="decreaseBetButton" layoutX="220.0" layoutY="470.0" onAction="#decreaseBet" text="-" />
-
-      <!-- Bet number input -->
       <Label fx:id="yourNumberLabel" layoutX="60.0" layoutY="520.0" styleClass="roulette-label" text="Your number:" />
       <TextField fx:id="betNumberField" layoutX="180.0" layoutY="518.0" prefWidth="60.0" />
-
-      <!-- Result message -->
       <Label fx:id="resultLabel" layoutX="420.0" layoutY="690.0" styleClass="roulette-result" text="" />
-
    </children>
 </AnchorPane>

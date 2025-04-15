@@ -28,7 +28,6 @@ public class SlotsController {
     private final PlayerProfile profile = CasinoSession.getProfile();
     private int currentBet = 0;
     private boolean spinning = false;
-    private AudioClip spinSound;
     private MediaPlayer backgroundPlayer;
 
     private Timeline autoSpinTimeline;
@@ -116,7 +115,7 @@ public class SlotsController {
         Random rand = new Random();
 
         for (int i = 0; i < 3; i++) {
-            final int index = i; // FIX: make loop variable final for lambda use
+            final int index = i;
             ImageView reel = reels[index];
             GaussianBlur blur = new GaussianBlur(10);
             reel.setEffect(blur);
@@ -142,7 +141,7 @@ public class SlotsController {
             }
 
             spin.getKeyFrames().add(new KeyFrame(Duration.millis(totalDuration), e -> {
-                showSymbolImage(reel, finalRow[index]); // use final index here
+                showSymbolImage(reel, finalRow[index]);
                 Timeline blurFade = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(blur.radiusProperty(), 10)),
                         new KeyFrame(Duration.millis(250), new KeyValue(blur.radiusProperty(), 0))
@@ -238,8 +237,6 @@ public class SlotsController {
             imageView.setPreserveRatio(true);
             imageView.setLayoutX(300);
             imageView.setLayoutY(200);
-
-            // 👇 prevent it from blocking clicks
             imageView.setMouseTransparent(true);
 
             gamePane.getChildren().add(imageView);
@@ -328,10 +325,7 @@ public class SlotsController {
     -fx-border-color: white;
     -fx-border-width: 1px;
     """);
-
-        // 👇 This is the line you asked about:
         dialogPane.lookup(".content.label").setStyle("-fx-text-fill: gold; -fx-font-size: 15px; -fx-font-family: 'Times New Roman', Times, serif; -fx-font-weight: bold;");
-
         Stage stage = (Stage) dialogPane.getScene().getWindow();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/cherry.png")));
         alert.showAndWait();
